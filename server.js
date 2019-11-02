@@ -16,6 +16,6 @@ app.get("/", (req, res) => {
 });
 
 // TODO set PORT as a variable
-app.listen(3000, () => {
+app.listen(8080, () => {
     console.log("Listening on port 8080");
 });
