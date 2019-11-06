@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 const apiRoutes = require("./api/routes");
-const connection = require("./database/db");
+//const connection = require("./database/db");
 
 // TODO include database and open connection
 
