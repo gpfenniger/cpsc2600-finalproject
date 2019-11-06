@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 let FactionSchema = new mongoose.Schema({
     name: {
@@ -14,4 +14,4 @@ let FactionSchema = new mongoose.Schema({
     }
 });
 
-exports.Faction = mongoose.model("Faction", FactionSchema);
+exports.Faction = mongoose.model('Faction', FactionSchema);
