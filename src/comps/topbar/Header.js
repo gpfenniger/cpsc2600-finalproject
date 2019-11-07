@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
+import NavLink from './NavLink';
 
 export default class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            links: ['Link 1', 'Link 2', 'Link 3']
+            links: [
+                {
+                    value: 'Factions',
+                    href: '/faction'
+                },
+                {
+                    value: 'Articles',
+                    href: '/article'
+                }
+            ]
         };
     }
 
     render() {
         return (
             <header>
-                <h1>Title</h1>
+                <h2>Project Deepsky</h2>
                 <ul>
                     {this.state.links.map(link => {
-                        return <li key={link}>{link}</li>;
+                        return (
+                            <NavLink
+                                key={link.href}
+                                link={link}
+                                changePage={this.props.changePage}
+                            />
+                        );
                     })}
                 </ul>
             </header>

@@ -6,12 +6,24 @@ import LinkBar from './comps/body/LinkBar';
 import Footer from './comps/bottombar/Footer';
 
 export default class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            pageLink: ''
+        };
+        this.changePage = this.changePage.bind(this);
+    }
+
+    changePage(page) {
+        this.setState({ pageLink: page });
+    }
+
     render() {
         return (
             <>
-                <Header />
+                <Header changePage={this.changePage} />
                 <main>
-                    <Content />
+                    <Content pageLink={this.state.pageLink} />
                     <LinkBar />
                 </main>
                 <Footer />

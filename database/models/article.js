@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 let ArticleSchema = new mongoose.Schema({
     title: {
@@ -6,10 +6,12 @@ let ArticleSchema = new mongoose.Schema({
         maxlength: 30,
         required: true
     },
-    text: {
-        type: String,
-        required: true
-    },
+    blobs: [
+        {
+            title: String,
+            text: String
+        }
+    ],
     tags: [
         {
             type: String,
@@ -18,4 +20,4 @@ let ArticleSchema = new mongoose.Schema({
     ]
 });
 
-exports.Article = mongoose.model("Article", ArticleSchema);
+exports.Article = mongoose.model('Article', ArticleSchema);

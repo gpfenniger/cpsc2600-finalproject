@@ -21,7 +21,11 @@ header ul {
 }
 
 header li {
-    margin-left: 10px;
+    margin: 25px;
+}
+
+header a {
+    text-decoration: none;
 }
 
 header {
