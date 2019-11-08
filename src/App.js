@@ -9,13 +9,13 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            pageLink: ''
+            page: {}
         };
         this.changePage = this.changePage.bind(this);
     }
 
     changePage(page) {
-        this.setState({ pageLink: page });
+        this.setState({ page: page });
     }
 
     render() {
@@ -23,7 +23,7 @@ export default class App extends Component {
             <>
                 <Header changePage={this.changePage} />
                 <main>
-                    <Content pageLink={this.state.pageLink} />
+                    <Content page={this.state.page} />
                     <LinkBar />
                 </main>
                 <Footer />

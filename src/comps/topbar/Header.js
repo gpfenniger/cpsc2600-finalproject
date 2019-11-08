@@ -8,11 +8,13 @@ export default class Header extends Component {
             links: [
                 {
                     value: 'Factions',
-                    href: '/faction'
+                    href: '/faction',
+                    linktype: 'faction'
                 },
                 {
                     value: 'Articles',
-                    href: '/article'
+                    href: '/article',
+                    linktype: 'article'
                 }
             ]
         };
@@ -29,6 +31,7 @@ export default class Header extends Component {
                                 key={link.href}
                                 link={link}
                                 changePage={this.props.changePage}
+                                linktype={link.linktype}
                             />
                         );
                     })}

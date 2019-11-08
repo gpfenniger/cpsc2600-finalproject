@@ -8,13 +8,21 @@ export default class NavLink extends Component {
 
     handleClick(event) {
         event.preventDefault();
-        this.props.changePage(event.target.href);
+        this.props.changePage({
+            title: event.target.innerHTML,
+            link: event.target.href,
+            linktype: event.target.attributes['linktype'].nodeValue
+        });
     }
 
     render() {
         return (
             <li>
-                <a href={this.props.link.href} onClick={this.handleClick}>
+                <a
+                    href={this.props.link.href}
+                    onClick={this.handleClick}
+                    linktype={this.props.linktype}
+                >
                     {this.props.link.value}
                 </a>
             </li>

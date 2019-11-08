@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 let ArticleSchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
         maxlength: 30,
         required: true
