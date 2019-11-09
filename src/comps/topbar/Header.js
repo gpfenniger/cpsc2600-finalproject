@@ -13,7 +13,7 @@ export default class Header extends Component {
                 },
                 {
                     value: 'Articles',
-                    href: '/article',
+                    href: '/faction/terran_republic',
                     linktype: 'article'
                 }
             ]
