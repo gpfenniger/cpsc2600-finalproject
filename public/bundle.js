@@ -18703,7 +18703,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _view_ResultView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view/ResultView */ "./src/comps/body/view/ResultView.js");
 /* harmony import */ var _view_SearchView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view/SearchView */ "./src/comps/body/view/SearchView.js");
-/* harmony import */ var _contentMethods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contentMethods */ "./src/comps/body/contentMethods.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18721,7 +18720,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -18758,11 +18756,14 @@ function (_Component) {
       /* sets state based on wether results are a search or specific */
       if (prevProps.page.link != this.props.page.link) {
         axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(this.props.page.link).then(function (res) {
-          console.log(res.data);
-
-          _this2.setState({
+          if (res.data.length > 1) _this2.setState({
+            title: 'Search Results',
+            content: res.data,
+            single: false
+          });else _this2.setState({
             title: res.data[0].name,
-            content: res.data[0].content
+            content: res.data[0].content,
+            single: true
           });
         });
       }
@@ -18779,7 +18780,7 @@ function (_Component) {
 
       if (this.state.single) {
         block = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_view_ResultView__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          title: this.state.content[0].title,
+          title: this.state.title,
           content: this.state.content[0].content,
           style: styles
         });
@@ -18864,49 +18865,6 @@ function (_Component) {
 
   return LinkBar;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-/***/ }),
-
-/***/ "./src/comps/body/contentMethods.js":
-/*!******************************************!*\
-  !*** ./src/comps/body/contentMethods.js ***!
-  \******************************************/
-/*! exports provided: decideContent, searchFaction, singleFaction */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decideContent", function() { return decideContent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchFaction", function() { return searchFaction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "singleFaction", function() { return singleFaction; });
-var decideContent = function decideContent(data, link) {
-  if (data.length > 1) {
-    if (link.linktype == 'faction') return searchFaction(data, link);
-  } else if (link.linktype == 'article') return singleFaction(data);
-};
-
-var searchFaction = function searchFaction(data, link) {
-  return {
-    title: link.title,
-    single: false,
-    content: data.map(function (block) {
-      return {
-        name: block.name,
-        desc: block.description
-      };
-    })
-  };
-};
-
-var singleFaction = function singleFaction(data) {
-  return {
-    title: data[0].name,
-    content: data[0].description,
-    single: true
-  };
-};
 
 
 
