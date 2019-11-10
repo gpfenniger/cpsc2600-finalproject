@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ResultView from './view/ResultView';
 import SearchView from './view/SearchView';
-import LoginForm from '../forms/LoginForm';
+import FloatingLogin from '../forms/FloatingLogin';
 
 export default class Content extends Component {
     constructor(props) {
@@ -10,8 +10,10 @@ export default class Content extends Component {
         this.state = {
             title: 'Homepage',
             content: [{ title: '', content: '' }],
-            single: true
+            single: true,
+            loginkey: undefined
         };
+        this.changeKey = this.changeKey.bind(this);
     }
 
     componentDidUpdate(prevProps) {
@@ -32,6 +34,10 @@ export default class Content extends Component {
                     });
             });
         }
+    }
+
+    changeKey(loginkey) {
+        this.setState({ loginkey: loginkey });
     }
 
     render() {
@@ -57,7 +63,11 @@ export default class Content extends Component {
         return (
             <>
                 {block}
-                <LoginForm />
+                <FloatingLogin
+                    handleLogin={this.props.handleLogin}
+                    changeKey={this.changeKey}
+                    show={this.props.loginShow}
+                />
             </>
         );
     }

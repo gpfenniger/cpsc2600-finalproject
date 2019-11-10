@@ -9,21 +9,39 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            page: {}
+            page: {},
+            loginShow: false
         };
         this.changePage = this.changePage.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
     }
 
     changePage(page) {
         this.setState({ page: page });
     }
 
+    handleLogin(event) {
+        this.setState({ loginShow: !this.state.loginShow });
+        event.preventDefault();
+    }
+
+    changeKey(loginkey) {
+        this.setState({ loginkey: loginkey });
+    }
+
     render() {
         return (
             <>
-                <Header changePage={this.changePage} />
+                <Header
+                    changePage={this.changePage}
+                    handleLogin={this.handleLogin}
+                />
                 <main>
-                    <Content page={this.state.page} />
+                    <Content
+                        page={this.state.page}
+                        handleLogin={this.handleLogin}
+                        loginShow={this.state.loginShow}
+                    />
                     <LinkBar />
                 </main>
                 <Footer />

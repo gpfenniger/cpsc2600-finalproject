@@ -9,6 +9,7 @@ h3,
 h4,
 a,
 li,
+label,
 p {
     color: #2e3440;
     font-family: sans-serif;
@@ -64,4 +65,22 @@ main {
 footer {
     text-align: center;
     margin-top: 50px;
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.loginform label {
+    color: #eceff4;
+}
+
+.loginform input {
+    background-color: #eceff4;
+    padding: 5px;
+    margin: 25px;
+    width: 250px;
+    border-radius: 5px;
 }

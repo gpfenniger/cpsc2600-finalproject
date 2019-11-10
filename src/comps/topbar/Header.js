@@ -32,6 +32,11 @@ export default class Header extends Component {
                             />
                         );
                     })}
+                    <li>
+                        <a onClick={this.props.handleLogin} href="/">
+                            login
+                        </a>
+                    </li>
                 </ul>
             </header>
         );

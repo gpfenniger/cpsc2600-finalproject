@@ -4,11 +4,7 @@ import axios from 'axios';
 export default class LoginForm extends Component {
     constructor() {
         super();
-        this.state = {
-            loginkey: undefined
-        };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.loginCheck = this.loginCheck.bind(this);
     }
 
     handleSubmit(event) {
@@ -19,29 +15,23 @@ export default class LoginForm extends Component {
                 password: event.target[1].value
             })
             .then(res => {
-                this.setState({ loginkey: res.data.key });
+                this.props.changeKey(res.data.key);
             });
-    }
-
-    loginCheck(event) {
-        event.preventDefault();
-        axios.post('/admin', { loginkey: this.state.loginkey }).then(res => {
-            alert(res.data);
-        });
     }
 
     render() {
         return (
-            <>
-                <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="loginform">
+                <label>
+                    Username:
                     <input type="text" />
+                </label>
+                <label>
+                    Password:
                     <input type="password" />
-                    <button type="submit">Login</button>
-                </form>
-                <form onSubmit={this.loginCheck}>
-                    <button type="submit">Submit</button>
-                </form>
-            </>
+                </label>
+                <button type="submit">Login</button>
+            </form>
         );
     }
 }

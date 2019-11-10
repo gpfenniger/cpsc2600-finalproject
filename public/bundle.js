@@ -3867,7 +3867,7 @@ function isnan(val) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #2e3440;\n    color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n", ""]);
+exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #2e3440;\n    color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n    border-radius: 5px;\n}\n", ""]);
 
 
 /***/ }),
@@ -18656,9 +18656,11 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
     _this.state = {
-      page: {}
+      page: {},
+      loginShow: false
     };
     _this.changePage = _this.changePage.bind(_assertThisInitialized(_this));
+    _this.handleLogin = _this.handleLogin.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -18670,12 +18672,30 @@ function (_Component) {
       });
     }
   }, {
+    key: "handleLogin",
+    value: function handleLogin(event) {
+      this.setState({
+        loginShow: !this.state.loginShow
+      });
+      event.preventDefault();
+    }
+  }, {
+    key: "changeKey",
+    value: function changeKey(loginkey) {
+      this.setState({
+        loginkey: loginkey
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_topbar_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        changePage: this.changePage
+        changePage: this.changePage,
+        handleLogin: this.handleLogin
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_body_Content__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        page: this.state.page
+        page: this.state.page,
+        handleLogin: this.handleLogin,
+        loginShow: this.state.loginShow
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_body_LinkBar__WEBPACK_IMPORTED_MODULE_3__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_bottombar_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
     }
   }]);
@@ -18703,7 +18723,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _view_ResultView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view/ResultView */ "./src/comps/body/view/ResultView.js");
 /* harmony import */ var _view_SearchView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view/SearchView */ "./src/comps/body/view/SearchView.js");
-/* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../forms/LoginForm */ "./src/comps/forms/LoginForm.js");
+/* harmony import */ var _forms_FloatingLogin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../forms/FloatingLogin */ "./src/comps/forms/FloatingLogin.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18714,9 +18734,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -18745,8 +18765,10 @@ function (_Component) {
         title: '',
         content: ''
       }],
-      single: true
+      single: true,
+      loginkey: undefined
     };
+    _this.changeKey = _this.changeKey.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -18771,6 +18793,13 @@ function (_Component) {
       }
     }
   }, {
+    key: "changeKey",
+    value: function changeKey(loginkey) {
+      this.setState({
+        loginkey: loginkey
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var styles = {
@@ -18793,7 +18822,11 @@ function (_Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, block, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, block, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_FloatingLogin__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        handleLogin: this.props.handleLogin,
+        changeKey: this.changeKey,
+        show: this.props.loginShow
+      }));
     }
   }]);
 
@@ -19133,6 +19166,107 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./src/comps/forms/FloatingLogin.js":
+/*!******************************************!*\
+  !*** ./src/comps/forms/FloatingLogin.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FloatingLogin; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _LoginForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginForm */ "./src/comps/forms/LoginForm.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var FloatingLogin =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(FloatingLogin, _Component);
+
+  function FloatingLogin(props) {
+    var _this;
+
+    _classCallCheck(this, FloatingLogin);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FloatingLogin).call(this, props));
+    _this.state = {
+      width: 0,
+      height: 0
+    };
+    _this.updateWindowDimensions = _this.updateWindowDimensions.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(FloatingLogin, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.updateWindowDimensions();
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+  }, {
+    key: "updateWindowDimensions",
+    value: function updateWindowDimensions() {
+      this.setState({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var style = {
+        position: 'fixed',
+        left: this.state.width / 4,
+        width: '50%',
+        top: 150,
+        backgroundColor: '#2e3440',
+        padding: 25,
+        borderRadius: 5,
+        display: this.props.show ? 'block' : 'none'
+      };
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: style,
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        changeKey: this.props.changeKey
+      }));
+    }
+  }]);
+
+  return FloatingLogin;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./src/comps/forms/LoginForm.js":
 /*!**************************************!*\
   !*** ./src/comps/forms/LoginForm.js ***!
@@ -19179,11 +19313,7 @@ function (_Component) {
     _classCallCheck(this, LoginForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginForm).call(this));
-    _this.state = {
-      loginkey: undefined
-    };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.loginCheck = _this.loginCheck.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -19197,37 +19327,22 @@ function (_Component) {
         username: event.target[0].value,
         password: event.target[1].value
       }).then(function (res) {
-        _this2.setState({
-          loginkey: res.data.key
-        });
-      });
-    }
-  }, {
-    key: "loginCheck",
-    value: function loginCheck(event) {
-      event.preventDefault();
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/admin', {
-        loginkey: this.state.loginkey
-      }).then(function (res) {
-        alert(res.data);
+        _this2.props.changeKey(res.data.key);
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit,
+        className: "loginform"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
-      }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.loginCheck
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, "Submit")));
+      }, "Login"));
     }
   }]);
 
@@ -19306,7 +19421,10 @@ function (_Component) {
           link: link,
           changePage: _this2.props.changePage
         });
-      })));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: this.props.handleLogin,
+        href: "/"
+      }, "login"))));
     }
   }]);
 
