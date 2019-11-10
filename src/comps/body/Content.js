@@ -9,7 +9,7 @@ export default class Content extends Component {
         super(props);
         this.state = {
             title: 'Homepage',
-            content: [],
+            content: [{ title: '', content: '' }],
             single: true
         };
     }
@@ -18,7 +18,11 @@ export default class Content extends Component {
         /* sets state based on wether results are a search or specific */
         if (prevProps.page.link != this.props.page.link) {
             axios.get(this.props.page.link).then(res => {
-                this.setState(decideContent(res.data, this.props.page));
+                console.log(res.data);
+                this.setState({
+                    title: res.data[0].name,
+                    content: res.data[0].content
+                });
             });
         }
     }
@@ -34,19 +38,13 @@ export default class Content extends Component {
         if (this.state.single) {
             block = (
                 <ResultView
-                    title={this.state.title}
-                    content={this.state.content}
+                    title={this.state.content[0].title}
+                    content={this.state.content[0].content}
                     style={styles}
                 />
             );
         } else {
-            block = (
-                <SearchView
-                    res={this.state.content}
-                    linktype={this.props.page.linktype}
-                    style={styles}
-                />
-            );
+            block = <SearchView res={this.state.content} style={styles} />;
         }
 
         return <>{block}</>;

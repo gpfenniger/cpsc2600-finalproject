@@ -7,14 +7,12 @@ export default class Header extends Component {
         this.state = {
             links: [
                 {
-                    value: 'Factions',
-                    href: '/faction',
-                    linktype: 'faction'
+                    value: 'Blog',
+                    href: '/api/article'
                 },
                 {
-                    value: 'Articles',
-                    href: '/faction/terran_republic',
-                    linktype: 'article'
+                    value: 'About Me',
+                    href: '/aboutme'
                 }
             ]
         };
@@ -31,7 +29,6 @@ export default class Header extends Component {
                                 key={link.href}
                                 link={link}
                                 changePage={this.props.changePage}
-                                linktype={link.linktype}
                             />
                         );
                     })}

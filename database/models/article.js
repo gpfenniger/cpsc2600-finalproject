@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 let ArticleSchema = new mongoose.Schema({
     name: {
@@ -6,12 +6,17 @@ let ArticleSchema = new mongoose.Schema({
         maxlength: 30,
         required: true
     },
-    blobs: [
+    content: [
         {
             title: String,
-            text: String
+            content: String
         }
     ],
+    slug: {
+        type: String,
+        maxlength: 30,
+        required: true
+    },
     tags: [
         {
             type: String,
