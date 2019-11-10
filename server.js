@@ -1,13 +1,13 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 const apiRoutes = require('./api/routes');
 const connection = require('./database/db');
 
-// TODO include database and open connection
-
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use('/', apiRoutes);
 
 // TODO error handling middleware

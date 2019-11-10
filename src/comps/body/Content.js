@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ResultView from './view/ResultView';
 import SearchView from './view/SearchView';
+import LoginForm from '../forms/LoginForm';
 
 export default class Content extends Component {
     constructor(props) {
@@ -53,6 +54,11 @@ export default class Content extends Component {
             block = <SearchView res={this.state.content} style={styles} />;
         }
 
-        return <>{block}</>;
+        return (
+            <>
+                {block}
+                <LoginForm />
+            </>
+        );
     }
 }

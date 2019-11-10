@@ -10,6 +10,9 @@ Griffin Pfenniger
 
 To build a project that takes advantage of all the technologies learned during the Fall of 2019.
 
+This project builds an easy to customize blog which features a simple dashboard and code structure
+for adding articles or changing colours.
+
 ## Tech Stack
 
 * Mongoose
@@ -22,6 +25,9 @@ To build a project that takes advantage of all the technologies learned during t
 ## API Documentation
 
 Endpoints
+
+* /api/article - supports - GET, POST, DELETE, OPTIONS
+* /api/aboutme - supports - GET, OPTIONS
 
 ## Setup Instructions
 

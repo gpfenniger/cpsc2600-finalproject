@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
+/* should be changed to not store plaintext passwords */
 
 let UserSchema = new mongoose.Schema({
     username: {
@@ -14,4 +15,4 @@ let UserSchema = new mongoose.Schema({
     }
 });
 
-exports.User = mongoose.model("User", UserSchema);
+exports.User = mongoose.model('User', UserSchema);
