@@ -5,13 +5,14 @@ export default class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            title: 'The Viking Programmer',
             links: [
                 {
-                    value: 'Blog',
+                    value: 'blog',
                     href: '/api/article'
                 },
                 {
-                    value: 'About Me',
+                    value: 'about me',
                     href: '/aboutme'
                 }
             ]
@@ -21,7 +22,7 @@ export default class Header extends Component {
     render() {
         return (
             <header>
-                <h2>Project Deepsky</h2>
+                <h2>{this.state.title}</h2>
                 <ul>
                     {this.state.links.map(link => {
                         return (
@@ -32,12 +33,14 @@ export default class Header extends Component {
                             />
                         );
                     })}
-                    <li>
-                        <a onClick={this.props.handleLogin} href="/">
-                            login
-                        </a>
-                    </li>
                 </ul>
+                <a
+                    onClick={this.props.handleLogin}
+                    href="/"
+                    style={{ alignSelf: 'right', marginRight: 40 }}
+                >
+                    login
+                </a>
             </header>
         );
     }

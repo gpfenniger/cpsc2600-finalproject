@@ -5,8 +5,10 @@ export default class Card extends Component {
     render() {
         return (
             <div className="container content" style={this.props.style}>
-                <h2>{this.props.title}</h2>
-                {ReactHTMLParser(this.props.children)}
+                <div className="internal">
+                    <h2>{this.props.title}</h2>
+                    {this.props.children}
+                </div>
             </div>
         );
     }

@@ -3867,7 +3867,7 @@ function isnan(val) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #2e3440;\n    color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n    flex: 2;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #2e3440;\n    color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n    border-radius: 5px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n", ""]);
 
 
 /***/ }),
@@ -18763,7 +18763,13 @@ function (_Component) {
       title: 'Homepage',
       content: [{
         title: '',
-        content: ''
+        content: "<p>This site showcases many of the concepts I have learned this semester</p>"
+      }, {
+        title: 'Front End',
+        content: "<ul>\n                        <li>Controlled Forms</li>\n                        <li>State Elevation</li>\n                        <li>Conditional Rendering</li>\n                        <li>Component Lifecycle</li>\n                        <li>Component Composition</li>\n                    </ul>"
+      }, {
+        title: 'Back End',
+        content: "<ul>\n                        <li>Mongoose Models and Schemas</li>\n                        <li>Express with Middleware</li>\n                        <li>Express Validation for Post Requests</li>\n                        <li>RESTful API Implementation</li>\n                        <li>Basic User Authentication</li>\n                    </ul>"
       }],
       single: true,
       loginkey: undefined
@@ -18812,7 +18818,7 @@ function (_Component) {
       if (this.state.single) {
         block = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_view_ResultView__WEBPACK_IMPORTED_MODULE_2__["default"], {
           title: this.state.title,
-          content: this.state.content[0].content,
+          content: this.state.content,
           style: styles
         });
       } else {
@@ -18957,7 +18963,9 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container content",
         style: this.props.style
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.title), react_html_parser__WEBPACK_IMPORTED_MODULE_1___default()(this.props.children));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "internal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.title), this.props.children));
     }
   }]);
 
@@ -18980,7 +18988,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ResultView; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card */ "./src/comps/body/view/Card.js");
+/* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-html-parser */ "./node_modules/react-html-parser/lib/index.js");
+/* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_html_parser__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Card */ "./src/comps/body/view/Card.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19002,6 +19012,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var ResultView =
 /*#__PURE__*/
 function (_Component) {
@@ -19016,10 +19027,14 @@ function (_Component) {
   _createClass(ResultView, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
         title: this.props.title,
         style: this.props.style
-      }, this.props.content);
+      }, this.props.content.map(function (item, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: index
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, item.title), react_html_parser__WEBPACK_IMPORTED_MODULE_1___default()(item.content));
+      }));
     }
   }]);
 
@@ -19399,11 +19414,12 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Header).call(this, props));
     _this.state = {
+      title: 'The Viking Programmer',
       links: [{
-        value: 'Blog',
+        value: 'blog',
         href: '/api/article'
       }, {
-        value: 'About Me',
+        value: 'about me',
         href: '/aboutme'
       }]
     };
@@ -19415,16 +19431,20 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Project Deepsky"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.links.map(function (link) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.state.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.links.map(function (link) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: link.href,
           link: link,
           changePage: _this2.props.changePage
         });
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: this.props.handleLogin,
-        href: "/"
-      }, "login"))));
+        href: "/",
+        style: {
+          alignSelf: 'right',
+          marginRight: 40
+        }
+      }, "login"));
     }
   }]);
 
