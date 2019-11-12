@@ -17,12 +17,25 @@ export default class Header extends Component {
                 }
             ]
         };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(event) {
+        event.preventDefault();
+        this.props.changePage({
+            title: 'Homepage',
+            link: '/api/page/home'
+        });
     }
 
     render() {
         return (
             <header>
-                <h2>{this.state.title}</h2>
+                <h2>
+                    <a href="/" onClick={this.handleClick}>
+                        {this.state.title}
+                    </a>
+                </h2>
                 <ul>
                     {this.state.links.map(link => {
                         return (

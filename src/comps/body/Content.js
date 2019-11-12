@@ -41,6 +41,12 @@ export default class Content extends Component {
         this.changeKey = this.changeKey.bind(this);
     }
 
+    /*
+    componentDidMount() {
+        axios.get('/api/page/home')
+    }
+    */
+
     componentDidUpdate(prevProps) {
         /* sets state based on wether results are a search or specific */
         if (prevProps.page.link != this.props.page.link) {
@@ -59,6 +65,12 @@ export default class Content extends Component {
                     });
             });
         }
+    }
+
+    componentWillUnmount() {
+        axios.post('/logout', { loginkey: this.state.loginkey }).then(res => {
+            console.log(res.data);
+        });
     }
 
     changeKey(loginkey) {
