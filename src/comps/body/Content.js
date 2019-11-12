@@ -3,6 +3,7 @@ import axios from 'axios';
 import ResultView from './view/ResultView';
 import SearchView from './view/SearchView';
 import FloatingLogin from '../forms/FloatingLogin';
+import LinkBar from './LinkBar';
 
 export default class Content extends Component {
     constructor(props) {
@@ -62,7 +63,8 @@ export default class Content extends Component {
             flex: 4
         };
 
-        let block = <></>;
+        let adminTools;
+        let block;
         if (this.state.single) {
             block = (
                 <ResultView
@@ -75,15 +77,35 @@ export default class Content extends Component {
             block = <SearchView res={this.state.content} style={styles} />;
         }
 
+        if (this.state.loginkey != undefined) {
+            adminTools = <AdminToolbar />;
+        }
+
         return (
             <>
-                {block}
-                <FloatingLogin
-                    handleLogin={this.props.handleLogin}
-                    changeKey={this.changeKey}
-                    show={this.props.loginShow}
-                />
+                <main>
+                    {block}
+                    <LinkBar />
+                    <FloatingLogin
+                        handleLogin={this.props.handleLogin}
+                        changeKey={this.changeKey}
+                        show={this.props.loginShow}
+                    />
+                </main>
+                {adminTools}
             </>
+        );
+    }
+}
+
+class AdminToolbar extends Component {
+    render() {
+        return (
+            <div className="toolbar">
+                <p>Admin Tools</p>
+                <input type="button" value="edit" />
+                <input type="button" value="new" />
+            </div>
         );
     }
 }

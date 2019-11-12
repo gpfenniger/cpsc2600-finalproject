@@ -3867,7 +3867,7 @@ function isnan(val) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n    flex: 2;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #2e3440;\n    color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n    border-radius: 5px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n", ""]);
+exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n    flex: 2;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n    border-radius: 5px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n", ""]);
 
 
 /***/ }),
@@ -18618,8 +18618,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _comps_topbar_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comps/topbar/Header */ "./src/comps/topbar/Header.js");
 /* harmony import */ var _comps_body_Content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comps/body/Content */ "./src/comps/body/Content.js");
-/* harmony import */ var _comps_body_LinkBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comps/body/LinkBar */ "./src/comps/body/LinkBar.js");
-/* harmony import */ var _comps_bottombar_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./comps/bottombar/Footer */ "./src/comps/bottombar/Footer.js");
+/* harmony import */ var _comps_bottombar_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comps/bottombar/Footer */ "./src/comps/bottombar/Footer.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18637,7 +18636,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -18693,11 +18691,11 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_topbar_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
         changePage: this.changePage,
         handleLogin: this.handleLogin
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_body_Content__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_body_Content__WEBPACK_IMPORTED_MODULE_2__["default"], {
         page: this.state.page,
         handleLogin: this.handleLogin,
         loginShow: this.state.loginShow
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_body_LinkBar__WEBPACK_IMPORTED_MODULE_3__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_bottombar_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comps_bottombar_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
@@ -18725,6 +18723,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_ResultView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view/ResultView */ "./src/comps/body/view/ResultView.js");
 /* harmony import */ var _view_SearchView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view/SearchView */ "./src/comps/body/view/SearchView.js");
 /* harmony import */ var _forms_FloatingLogin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../forms/FloatingLogin */ "./src/comps/forms/FloatingLogin.js");
+/* harmony import */ var _LinkBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LinkBar */ "./src/comps/body/LinkBar.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18742,6 +18741,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -18826,7 +18826,8 @@ function (_Component) {
         flexDirection: 'column',
         flex: 4
       };
-      var block = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
+      var adminTools;
+      var block;
 
       if (this.state.single) {
         block = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_view_ResultView__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -18841,11 +18842,15 @@ function (_Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, block, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_FloatingLogin__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      if (this.state.loginkey != undefined) {
+        adminTools = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AdminToolbar, null);
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, block, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LinkBar__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_FloatingLogin__WEBPACK_IMPORTED_MODULE_4__["default"], {
         handleLogin: this.props.handleLogin,
         changeKey: this.changeKey,
         show: this.props.loginShow
-      }));
+      })), adminTools);
     }
   }]);
 
@@ -18853,6 +18858,35 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
+
+var AdminToolbar =
+/*#__PURE__*/
+function (_Component2) {
+  _inherits(AdminToolbar, _Component2);
+
+  function AdminToolbar() {
+    _classCallCheck(this, AdminToolbar);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(AdminToolbar).apply(this, arguments));
+  }
+
+  _createClass(AdminToolbar, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "toolbar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Admin Tools"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "button",
+        value: "edit"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "button",
+        value: "new"
+      }));
+    }
+  }]);
+
+  return AdminToolbar;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /***/ }),
 
@@ -18909,11 +18943,7 @@ function (_Component) {
         style: {
           flex: 1
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        style: {
-          color: '#d8dee9'
-        }
-      }, "Links"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Links"));
     }
   }]);
 

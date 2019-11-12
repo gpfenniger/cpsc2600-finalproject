@@ -16,11 +16,6 @@ const crypto = require('crypto');
 const { check, validationResult } = require('express-validator');
 const { User } = require('../database/models/user');
 
-Date.prototype.addHours = h => {
-    this.setHours(this.getHours() + h);
-    return this;
-};
-
 let clearExpired = () => {
     let current = new Date();
     loginkeys = loginkeys.filter(loginkey => loginkey.expires > current);
@@ -49,9 +44,10 @@ exports.userRouter = require('express')
             } else {
                 User.findOne({}, (err, doc) => {
                     if (doc.password == req.body.password) {
+                        let newDate = new Date();
                         loginkeys.push({
                             key: crypto.randomBytes(20).toString('hex'),
-                            expires: new Date().addHours(2)
+                            expires: newDate.setHours(newDate.getHours() + 2)
                         });
                         res.send({ key: loginkeys[loginkeys.length - 1].key });
                     } else {

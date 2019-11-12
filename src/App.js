@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Header from './comps/topbar/Header';
 import Content from './comps/body/Content';
-import LinkBar from './comps/body/LinkBar';
 import Footer from './comps/bottombar/Footer';
 
 export default class App extends Component {
@@ -37,14 +36,11 @@ export default class App extends Component {
                     changePage={this.changePage}
                     handleLogin={this.handleLogin}
                 />
-                <main>
-                    <Content
-                        page={this.state.page}
-                        handleLogin={this.handleLogin}
-                        loginShow={this.state.loginShow}
-                    />
-                    <LinkBar />
-                </main>
+                <Content
+                    page={this.state.page}
+                    handleLogin={this.handleLogin}
+                    loginShow={this.state.loginShow}
+                />
                 <Footer />
             </>
         );

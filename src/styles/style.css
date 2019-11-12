@@ -54,8 +54,7 @@ main {
 }
 
 .linkBar {
-    background-color: #2e3440;
-    color: #d8dee9;
+    background-color: #d8dee9;
     text-align: center;
 }
 
@@ -89,4 +88,19 @@ footer {
 .internal {
     width: 80%;
     margin: auto;
+}
+
+.toolbar {
+    width: 70%;
+    margin: auto;
+    background-color: #434c5e;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.toolbar p {
+    color: #eceff4;
 }

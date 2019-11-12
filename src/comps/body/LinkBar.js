@@ -5,7 +5,7 @@ export default class LinkBar extends Component {
     render() {
         return (
             <div className="container linkBar" style={{ flex: 1 }}>
-                <h3 style={{ color: '#d8dee9' }}>Links</h3>
+                <h3>Links</h3>
             </div>
         );
     }
