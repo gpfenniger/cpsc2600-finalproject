@@ -8,6 +8,12 @@ exports.Page = mongoose.model(
             maxlength: 30,
             required: true
         },
+        slug: {
+            type: String,
+            maxlength: 30,
+            required: true,
+            unique: true
+        },
         content: [
             {
                 title: String,

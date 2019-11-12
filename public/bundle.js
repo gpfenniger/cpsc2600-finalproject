@@ -18760,43 +18760,40 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Content).call(this, props));
     _this.state = {
-      title: 'Homepage',
-      content: [{
-        title: '',
-        content: "<p>This site showcases many of the concepts I have learned this semester</p>"
-      }, {
-        title: 'Front End',
-        content: "<ul>\n                        <li>Controlled Forms</li>\n                        <li>State Elevation</li>\n                        <li>Conditional Rendering</li>\n                        <li>Component Lifecycle</li>\n                        <li>Component Composition</li>\n                    </ul>"
-      }, {
-        title: 'Back End',
-        content: "<ul>\n                        <li>Mongoose Models and Schemas</li>\n                        <li>Express with Middleware</li>\n                        <li>Express Validation for Post Requests</li>\n                        <li>RESTful API Implementation</li>\n                        <li>Basic User Authentication</li>\n                    </ul>"
-      }],
+      title: '',
+      content: [],
       single: true,
       loginkey: undefined
     };
     _this.changeKey = _this.changeKey.bind(_assertThisInitialized(_this));
     return _this;
   }
-  /*
-  componentDidMount() {
-      axios.get('/api/page/home')
-  }
-  */
-
 
   _createClass(Content, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/page/about_me').then(function (res) {
+        _this2.setState({
+          title: res.data.name,
+          content: res.data.content
+        });
+      });
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      var _this2 = this;
+      var _this3 = this;
 
       /* sets state based on wether results are a search or specific */
       if (prevProps.page.link != this.props.page.link) {
         axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(this.props.page.link).then(function (res) {
-          if (res.data.length > 1) _this2.setState({
+          if (res.data.length > 1) _this3.setState({
             title: 'Search Results',
             content: res.data,
             single: false
-          });else _this2.setState({
+          });else _this3.setState({
             title: res.data[0].name,
             content: res.data[0].content,
             single: true

@@ -3,9 +3,9 @@ const { pageParams } = require('./validation');
 const { Page } = require('../database/models/page');
 exports.pageRouter = require('express')
     .Router()
-    .get(['/page', '/page/:name'], (req, res) => {
+    .get(['/page', '/page/:slug'], (req, res) => {
         Page.findOne(
-            req.params.name ? { name: req.params.name } : {}
+            req.params.slug ? { slug: req.params.slug } : {}
         ).then(doc => res.send(doc));
     })
     .post('/page', pageParams, (req, res) => {

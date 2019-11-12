@@ -8,44 +8,22 @@ export default class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'Homepage',
-            content: [
-                {
-                    title: '',
-                    content: `<p>This site showcases many of the concepts I have learned this semester</p>`
-                },
-                {
-                    title: 'Front End',
-                    content: `<ul>
-                        <li>Controlled Forms</li>
-                        <li>State Elevation</li>
-                        <li>Conditional Rendering</li>
-                        <li>Component Lifecycle</li>
-                        <li>Component Composition</li>
-                    </ul>`
-                },
-                {
-                    title: 'Back End',
-                    content: `<ul>
-                        <li>Mongoose Models and Schemas</li>
-                        <li>Express with Middleware</li>
-                        <li>Express Validation for Post Requests</li>
-                        <li>RESTful API Implementation</li>
-                        <li>Basic User Authentication</li>
-                    </ul>`
-                }
-            ],
+            title: '',
+            content: [],
             single: true,
             loginkey: undefined
         };
         this.changeKey = this.changeKey.bind(this);
     }
 
-    /*
     componentDidMount() {
-        axios.get('/api/page/home')
+        axios.get('/api/page/about_me').then(res => {
+            this.setState({
+                title: res.data.name,
+                content: res.data.content
+            });
+        });
     }
-    */
 
     componentDidUpdate(prevProps) {
         /* sets state based on wether results are a search or specific */
