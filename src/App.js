@@ -10,7 +10,8 @@ export default class App extends Component {
         super();
         this.state = {
             page: {},
-            loginShow: false
+            loginShow: false,
+            user: undefined
         };
         this.changePage = this.changePage.bind(this);
         this.handleLogin = this.handleLogin.bind(this);

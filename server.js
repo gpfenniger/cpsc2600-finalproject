@@ -8,13 +8,20 @@ const connection = require('./database/db');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Oh no! Something broke!');
+});
+
+app.use(['/api/page', '/api/article'], (req, res, next) => {
+    if (req.method === 'POST') {
+        console.log('TODO check if logged in');
+    }
+    next();
+});
+
 app.use('/', apiRoutes);
-
-// TODO error handling middleware
-
-// TODO POST sanitization
-
-// TODO Error Endpoint
 
 app.get('/', (req, res) => {
     res.status(200).sendFile('/index.html');

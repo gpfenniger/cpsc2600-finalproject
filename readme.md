@@ -84,13 +84,16 @@ westernredcedar
 
 ## MongoDB Collections and Schemas
 
-* Article: Name, Content, Slug, Created
+* Article: Name, Content, Slug, Created, Tags
 * Page: Name, Content, Slug
 * User: Username, Password
 
 ## References and Learning Resources
 
 [React Documentation](https://reactjs.org/docs)
+[Mongoose Documentation]()
+[Express Documentation]()
+[WebMDN]()
 
 ## Final Notes
 
