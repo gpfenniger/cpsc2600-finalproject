@@ -71,6 +71,7 @@ export default class Content extends Component {
                     title={this.state.title}
                     content={this.state.content}
                     style={styles}
+                    loginkey={this.state.loginkey}
                 />
             );
         } else {

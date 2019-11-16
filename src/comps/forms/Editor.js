@@ -12,6 +12,7 @@ export default class Editor extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
+        this.toggleType = this.toggleType.bind(this);
     }
 
     handleChange(event) {
@@ -22,11 +23,26 @@ export default class Editor extends Component {
         this.setState(newState);
     }
 
+    toggleType(event) {
+        this.setState({ article: !this.state.article });
+    }
+
     handleSave() {
         console.log({
             name: this.state.title,
             content: this.state.content
         });
+        let body = {
+            name: this.state.title,
+            content: this.state.content,
+            tags: this.state.tags,
+            key: this.props.loginkey
+        };
+        axios
+            .post(`/api/${this.state.article ? 'article' : 'page'}`, body)
+            .then(() => {
+                alert('saved');
+            });
     }
 
     render() {
@@ -45,8 +61,12 @@ export default class Editor extends Component {
                 <textarea mod="content" onChange={this.handleChange} />
                 <input type="button" value="preview" />
                 <input type="button" onClick={this.handleSave} value="save" />
-                <input type="radio" name="model" value="article" />
-                <input type="radio" name="model" value="page" />
+                <input
+                    type="button"
+                    onClick={this.toggleType}
+                    value={this.state.article ? 'Article' : 'Page'}
+                />
+
                 {tagOptions}
             </form>
         );

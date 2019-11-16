@@ -8,7 +8,7 @@
 const { Article } = require('../database/models/article');
 const { articleParams, checkValidationErrors } = require('./validation');
 
-exports.blogRouter = require('express')
+module.exports = require('express')
     .Router()
     .get(['/article', '/article/:slug'], (req, res) => {
         let params = {};
@@ -23,21 +23,21 @@ exports.blogRouter = require('express')
         });
     })
     .post('/article', articleParams, (req, res) => {
-        // TODO change so user must be logged in
         if (checkValidationErrors(req)) {
             res.status(500).send('improper input');
         } else {
             Article({
-                name: req.name,
-                content: req.content,
-                slug: req.name.toLower().replace(' ', '_'),
-                tags: req.tags
+                name: req.body.name,
+                content: req.body.content,
+                slug: req.body.name.toLowerCase().replace(' ', '_'),
+                tags: req.body.tags
             }).save(err => {
                 if (err) console.log(err);
             });
         }
     })
     .delete('/article/:slug', (req, res) => {
+        // TODO DELETE Request
         // check if logged in
         // delete article by slug
         console.log('a delete request was made');

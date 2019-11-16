@@ -16,6 +16,9 @@ exports.pageParams = [
 ];
 
 exports.checkValidationErrors = req => {
-    if (validationResult(req)) return true;
+    if (validationResult(req).errors.length > 0) {
+        console.log(validationResult(req).errors);
+        return true;
+    }
     return false;
 };

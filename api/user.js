@@ -23,7 +23,7 @@ let clearExpired = () => {
 
 let loginkeys = [];
 exports.getKeys = () => loginkeys;
-exports.userRouter = require('express')
+module.exports = require('express')
     .Router()
     .post(
         '/login',

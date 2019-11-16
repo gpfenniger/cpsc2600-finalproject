@@ -5,7 +5,7 @@ export default class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'The Viking Programmer',
+            title: 'Final Project',
             links: [
                 {
                     value: 'blog',

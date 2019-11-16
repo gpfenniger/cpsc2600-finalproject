@@ -18,7 +18,7 @@ export default class SearchView extends Component {
                     return (
                         <Card
                             title={result.name}
-                            desc={result.desc}
+                            desc={result.content}
                             key={uuid()}
                         />
                     );

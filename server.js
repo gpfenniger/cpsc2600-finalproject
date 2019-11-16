@@ -14,13 +14,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('Oh no! Something broke!');
 });
 
-app.use(['/api/page', '/api/article'], (req, res, next) => {
-    if (req.method === 'POST') {
-        console.log('TODO check if logged in');
-    }
-    next();
-});
-
 app.use('/', apiRoutes);
 
 app.get('/', (req, res) => {

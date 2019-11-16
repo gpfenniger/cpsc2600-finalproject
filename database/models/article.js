@@ -6,12 +6,10 @@ let ArticleSchema = new mongoose.Schema({
         maxlength: 30,
         required: true
     },
-    content: [
-        {
-            title: String,
-            content: String
-        }
-    ],
+    content: {
+        type: String,
+        required: true
+    },
     slug: {
         type: String,
         maxlength: 30,

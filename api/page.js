@@ -1,7 +1,6 @@
-const { getKey } = require('./user');
-const { pageParams } = require('./validation');
+const { pageParams, checkValidationErrors } = require('./validation');
 const { Page } = require('../database/models/page');
-exports.pageRouter = require('express')
+module.exports = require('express')
     .Router()
     .get(['/page', '/page/:slug'], (req, res) => {
         Page.findOne(
@@ -10,5 +9,16 @@ exports.pageRouter = require('express')
     })
     .post('/page', pageParams, (req, res) => {
         // check if logged in
+        if (checkValidationErrors(req)) {
+            res.status(500).send('improper input');
+        } else {
+            Page({
+                name: req.body.name,
+                content: req.body.content,
+                slug: req.body.name.toLowerCase().replace(' ', '_')
+            }).save(err => {
+                if (err) console.log(err);
+            });
+        }
     })
     .delete('/page/:name', (req, res) => {});

@@ -14,11 +14,9 @@ exports.Page = mongoose.model(
             required: true,
             unique: true
         },
-        content: [
-            {
-                title: String,
-                content: String
-            }
-        ]
+        content: {
+            type: String,
+            required: true
+        }
     })
 );
