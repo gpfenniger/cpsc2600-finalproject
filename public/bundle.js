@@ -19597,7 +19597,7 @@ function (_Component) {
         href: '/api/article'
       }, {
         value: 'about me',
-        href: '/aboutme'
+        href: '/api/page/about_me'
       }]
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));

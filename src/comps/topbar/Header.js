@@ -13,7 +13,7 @@ export default class Header extends Component {
                 },
                 {
                     value: 'about me',
-                    href: '/aboutme'
+                    href: '/api/page/about_me'
                 }
             ]
         };

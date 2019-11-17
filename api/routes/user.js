@@ -14,7 +14,7 @@
 
 const crypto = require('crypto');
 const { check, validationResult } = require('express-validator');
-const { User } = require('../database/models/user');
+const User = require('../../database/models/user');
 
 let clearExpired = () => {
     let current = new Date();

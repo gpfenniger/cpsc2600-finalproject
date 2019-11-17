@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 let mongoDB = process.env.DB_CONNECTION;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('useCreateIndex', true)
 let connection = mongoose.connection;
 connection.on(
     'error',

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-exports.Page = mongoose.model(
+module.exports = mongoose.model(
     'Page',
     new mongoose.Schema({
         name: {

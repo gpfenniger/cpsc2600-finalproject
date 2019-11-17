@@ -12,10 +12,10 @@
         /api/page /api/article POST privelege check
 */
 
-const blogRouter = require('./blog');
-const pageRouter = require('./page');
-const userRouter = require('./user');
-const { getKeys } = require('./user');
+const blogRouter = require('./routes/blog');
+const pageRouter = require('./routes/page');
+const userRouter = require('./routes/user');
+const { getKeys } = require('./routes/user');
 
 module.exports = require('express')
     .Router()
@@ -25,7 +25,7 @@ module.exports = require('express')
             if (getKeys().filter(key => key.key == req.body.key).length > 0) {
                 next();
             }
-        }
+        } else next();
     })
     .use('/api', [blogRouter, pageRouter])
     .use('/', userRouter);
