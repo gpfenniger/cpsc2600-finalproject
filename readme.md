@@ -1,6 +1,6 @@
 # CPSC 2600 Final Project
 
-**Author:** 
+**Author:**
 Griffin Pfenniger
 
 **SID:**
@@ -87,9 +87,10 @@ westernredcedar
 * Article: Name, Content, Slug, Created, Tags
 * Page: Name, Content, Slug
 * User: Username, Password
+* Category: Name, Article IDs
 
 ## Final Notes
 
 * /constants/* holds configuration information such as the websites colours
 * .prettierrc holds the configuration for formating the code, can work with VSCode or be run with `npm run pretty`
-* Login system was designed just for this site 
+* Login system was designed just for this site
