@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavLink from './NavLink';
+import NavLink from '../components/header/NavLink';
 
 export default class Header extends Component {
     constructor(props) {

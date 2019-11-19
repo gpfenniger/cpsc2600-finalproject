@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ResultView from './view/ResultView';
-import SearchView from './view/SearchView';
-import FloatingLogin from '../forms/FloatingLogin';
+import ResultView from '../components/body/ResultView';
+import SearchView from '../components/body/SearchView';
 import LinkBar from './LinkBar';
+import FloatingPanel from '../components/FloatingPanel';
+import LoginForm from '../components/forms/LoginForm';
 
 export default class Content extends Component {
     constructor(props) {
@@ -87,11 +88,15 @@ export default class Content extends Component {
                 <main>
                     {block}
                     <LinkBar />
-                    <FloatingLogin
-                        handleLogin={this.props.handleLogin}
-                        changeKey={this.changeKey}
+                    <FloatingPanel
+                        width={this.props.width}
                         show={this.props.loginShow}
-                    />
+                    >
+                        <LoginForm
+                            handleLogin={this.props.handleLogin}
+                            changeKey={this.changeKey}
+                        />
+                    </FloatingPanel>
                 </main>
                 {adminTools}
             </>

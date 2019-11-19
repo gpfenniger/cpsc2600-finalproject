@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactHTMLParser from 'react-html-parser';
 import Card from './Card';
-import Editor from '../../forms/Editor';
+import Editor from '../forms/Editor';
 
 export default class ResultView extends Component {
     render() {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import colours from '../../../constants/colours';
 
 export default class LinkBar extends Component {
     render() {

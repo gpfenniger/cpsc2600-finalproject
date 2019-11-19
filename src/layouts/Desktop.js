@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+import Header from '../main/Header';
+import Content from '../main/Content';
+import Footer from '../main/Footer';
+
+export default class Desktop extends Component {
+    render() {
+        return (
+            <>
+                <Header
+                    changePage={this.props.changePage}
+                    handleLogin={this.props.handleLogin}
+                />
+                <Content
+                    page={this.props.page}
+                    handleLogin={this.props.handleLogin}
+                    loginShow={this.props.loginShow}
+                    width={this.props.width}
+                />
+                <Footer />
+            </>
+        );
+    }
+}

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-import Header from './comps/topbar/Header';
-import Content from './comps/body/Content';
-import Footer from './comps/bottombar/Footer';
+import Desktop from './layouts/Desktop';
+import Mobile from './layouts/Mobile';
 
 export default class App extends Component {
     constructor() {
@@ -10,10 +9,26 @@ export default class App extends Component {
         this.state = {
             page: {},
             loginShow: false,
-            user: undefined
+            user: undefined,
+            width: window.innerWidth,
+            height: window.innerHeight
         };
         this.changePage = this.changePage.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions() {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
 
     changePage(page) {
@@ -30,19 +45,27 @@ export default class App extends Component {
     }
 
     render() {
-        return (
-            <>
-                <Header
+        console.log(this.state.width);
+        if (this.state.width > 480) {
+            return (
+                <Desktop
                     changePage={this.changePage}
                     handleLogin={this.handleLogin}
-                />
-                <Content
                     page={this.state.page}
-                    handleLogin={this.handleLogin}
                     loginShow={this.state.loginShow}
+                    width={this.state.width}
                 />
-                <Footer />
-            </>
-        );
+            );
+        } else {
+            return (
+                <Mobile
+                    changePage={this.changePage}
+                    handleLogin={this.handleLogin}
+                    page={this.state.page}
+                    loginShow={this.state.loginShow}
+                    width={this.state.width}
+                />
+            );
+        }
     }
 }
