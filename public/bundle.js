@@ -3783,6 +3783,20 @@ function isnan(val) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css":
+/*!********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, "form input,\nform textarea,\nform select {\n    background-color: #81a1c1;\n    border-color: #8fbcbb;\n    padding: 5px;\n    margin: 15px;\n}\n\nform input:focus,\nform textarea:focus,\nform select:focus {\n    background-color: #88c0d0;\n}\n\n.editor {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n    margin: auto;\n}\n\n.editor input[type='button'] {\n    width: 100px;\n}\n\n.editor textarea {\n    width: 80%;\n}\n\n.editor .options {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n}\n\n.loginform button {\n    background-color: #eceff4;\n    width: 100px;\n    align-self: center;\n}\n", ""]);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/style.css":
 /*!********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/style.css ***!
@@ -3792,7 +3806,7 @@ function isnan(val) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n    flex: 2;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n    border-radius: 5px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n", ""]);
+exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\ntextarea,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n    flex: 2;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n\n.rounded {\n    border-radius: 5px;\n}\n", ""]);
 
 
 /***/ }),
@@ -18633,8 +18647,6 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state.width);
-
       if (this.state.width > 480) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Desktop__WEBPACK_IMPORTED_MODULE_1__["default"], {
           changePage: this.changePage,
@@ -19044,30 +19056,43 @@ function (_Component) {
       var tagOptions;
 
       if (this.state.article) {
-        tagOptions = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "text"
-        }));
+        tagOptions = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Tags:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          className: "rounded",
+          placeholder: "#mytag"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Categories", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          className: "rounded",
+          placeholder: "category name"
+        })));
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "editor"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Article / Page Editor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         mod: "title",
-        onChange: this.handleChange
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        onChange: this.handleChange,
+        className: "rounded",
+        placeholder: "Unique Title Name"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Content", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         mod: "content",
-        onChange: this.handleChange
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "button",
-        value: "preview"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChange,
+        className: "rounded",
+        placeholder: " <p>For regular text</p> <b>For bold</b> <i>For italics</i> <h1-4>For headers</h1> "
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "options"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "button",
         onClick: this.handleSave,
-        value: "save"
+        value: "Save",
+        className: "rounded"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "button",
         onClick: this.toggleType,
-        value: this.state.article ? 'Article' : 'Page'
-      }), tagOptions);
+        value: this.state.article ? 'Article' : 'Page',
+        className: "rounded"
+      })), tagOptions);
     }
   }]);
 
@@ -19146,13 +19171,16 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
-        className: "loginform"
+        className: "loginform rounded"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text"
+        type: "text",
+        className: "rounded"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "password"
+        type: "password",
+        className: "rounded"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
+        type: "submit",
+        className: "rounded"
       }, "Login"));
     }
   }]);
@@ -19253,6 +19281,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./src/App.js");
 /* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/style.css */ "./src/styles/style.css");
 /* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_style_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
+/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_forms_css__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -19793,6 +19824,33 @@ function (_Component) {
   return LinkBar;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
+
+
+/***/ }),
+
+/***/ "./src/styles/forms.css":
+/*!******************************!*\
+  !*** ./src/styles/forms.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./forms.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
 
 
 /***/ }),

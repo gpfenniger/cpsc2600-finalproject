@@ -21,16 +21,18 @@ export default class LoginForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className="loginform">
+            <form onSubmit={this.handleSubmit} className="loginform rounded">
                 <label>
                     Username:
-                    <input type="text" />
+                    <input type="text" className="rounded" />
                 </label>
                 <label>
                     Password:
-                    <input type="password" />
+                    <input type="password" className="rounded" />
                 </label>
-                <button type="submit">Login</button>
+                <button type="submit" className="rounded">
+                    Login
+                </button>
             </form>
         );
     }

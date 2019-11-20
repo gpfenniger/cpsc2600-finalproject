@@ -50,22 +50,69 @@ export default class Editor extends Component {
         if (this.state.article) {
             tagOptions = (
                 <>
-                    <input type="text" />
+                    <label>
+                        Tags:
+                        <input
+                            type="text"
+                            className="rounded"
+                            placeholder="#mytag"
+                        />
+                    </label>
+                    <label>
+                        Categories
+                        <input
+                            type="text"
+                            className="rounded"
+                            placeholder="category name"
+                        />
+                    </label>
                 </>
             );
         }
 
         return (
-            <form>
-                <input type="text" mod="title" onChange={this.handleChange} />
-                <textarea mod="content" onChange={this.handleChange} />
-                <input type="button" value="preview" />
-                <input type="button" onClick={this.handleSave} value="save" />
-                <input
-                    type="button"
-                    onClick={this.toggleType}
-                    value={this.state.article ? 'Article' : 'Page'}
-                />
+            <form className="editor">
+                <h3>Article / Page Editor</h3>
+                <label>
+                    Title
+                    <br />
+                    <input
+                        type="text"
+                        mod="title"
+                        onChange={this.handleChange}
+                        className="rounded"
+                        placeholder="Unique Title Name"
+                    />
+                </label>
+                <label>
+                    Content
+                    <br />
+                    <textarea
+                        mod="content"
+                        onChange={this.handleChange}
+                        className="rounded"
+                        placeholder="
+                            <p>For regular text</p>
+                            <b>For bold</b>
+                            <i>For italics</i>
+                            <h1-4>For headers</h1>
+                        "
+                    />
+                </label>
+                <div className="options">
+                    <input
+                        type="button"
+                        onClick={this.handleSave}
+                        value="Save"
+                        className="rounded"
+                    />
+                    <input
+                        type="button"
+                        onClick={this.toggleType}
+                        value={this.state.article ? 'Article' : 'Page'}
+                        className="rounded"
+                    />
+                </div>
 
                 {tagOptions}
             </form>

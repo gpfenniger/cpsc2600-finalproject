@@ -45,7 +45,6 @@ export default class App extends Component {
     }
 
     render() {
-        console.log(this.state.width);
         if (this.state.width > 480) {
             return (
                 <Desktop

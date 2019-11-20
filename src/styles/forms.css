@@ -1,0 +1,58 @@
+form input,
+form textarea,
+form select {
+    background-color: #81a1c1;
+    border-color: #8fbcbb;
+    padding: 5px;
+    margin: 15px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    background-color: #88c0d0;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+}
+
+.editor input[type='button'] {
+    width: 100px;
+}
+
+.editor textarea {
+    width: 80%;
+}
+
+.editor .options {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.loginform label {
+    color: #eceff4;
+}
+
+.loginform input {
+    background-color: #eceff4;
+    padding: 5px;
+    margin: 25px;
+    width: 250px;
+}
+
+.loginform button {
+    background-color: #eceff4;
+    width: 100px;
+    align-self: center;
+}
