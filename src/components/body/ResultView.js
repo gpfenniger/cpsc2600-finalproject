@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import ReactHTMLParser from 'react-html-parser';
 import Card from './Card';
-import Editor from '../forms/Editor';
 
 export default class ResultView extends Component {
     render() {
+        let style = {
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 4
+        };
         return (
-            <Card title={this.props.title} style={this.props.style}>
-                {ReactHTMLParser(this.props.content)}
-                <Editor loginkey={this.props.loginkey} />
+            <Card title={this.props.info.name} style={style}>
+                {ReactHTMLParser(this.props.info.content)}
             </Card>
         );
     }

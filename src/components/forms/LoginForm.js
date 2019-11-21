@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { login } from '../../services/ServiceWorker';
 
 export default class LoginForm extends Component {
     constructor() {
@@ -9,13 +9,14 @@ export default class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        axios
-            .post('/login', {
-                username: event.target[0].value,
-                password: event.target[1].value
+        login(event.target[0].value, event.target[1].value)
+            .then(key => {
+                console.log(key);
+                this.props.changeKey(key);
             })
-            .then(res => {
-                this.props.changeKey(res.data.key);
+            .catch(err => {
+                //TODO Login Failed
+                console.log(err);
             });
     }
 

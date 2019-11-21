@@ -7,7 +7,7 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            page: {},
+            page: '/api/page/home',
             loginShow: false,
             user: undefined,
             width: window.innerWidth,

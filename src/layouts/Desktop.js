@@ -6,7 +6,7 @@ import Footer from '../main/Footer';
 export default class Desktop extends Component {
     render() {
         return (
-            <>
+            <div className="desktop">
                 <Header
                     changePage={this.props.changePage}
                     handleLogin={this.props.handleLogin}
@@ -18,7 +18,7 @@ export default class Desktop extends Component {
                     width={this.props.width}
                 />
                 <Footer />
-            </>
+            </div>
         );
     }
 }

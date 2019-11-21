@@ -22,10 +22,7 @@ export default class Header extends Component {
 
     handleClick(event) {
         event.preventDefault();
-        this.props.changePage({
-            title: 'Homepage',
-            link: '/api/page/home'
-        });
+        this.props.changePage('/api/page/home');
     }
 
     render() {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ResultView from '../components/body/ResultView';
 import SearchView from '../components/body/SearchView';
+import AdminToolbar from '../components/body/AdminToolbar';
 import LinkBar from './LinkBar';
 import FloatingPanel from '../components/FloatingPanel';
 import LoginForm from '../components/forms/LoginForm';
@@ -10,108 +11,59 @@ export default class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            content: [],
-            single: true,
-            loginkey: undefined
+            view: <></>,
+            key: undefined
         };
         this.changeKey = this.changeKey.bind(this);
     }
 
     componentDidMount() {
-        axios.get('/api/page/about_me').then(res => {
+        axios.get(this.props.page).then(result => {
             this.setState({
-                title: res.data.name,
-                content: res.data.content
+                view: <ResultView info={result.data} />,
+                viewInfo: result.data
             });
         });
     }
 
     componentDidUpdate(prevProps) {
-        /* sets state based on wether results are a search or specific */
-        if (prevProps.page.link != this.props.page.link) {
-            axios.get(this.props.page.link).then(res => {
-                if (res.data.length > 1)
-                    this.setState({
-                        title: 'Search Results',
-                        content: res.data,
-                        single: false
-                    });
-                else
-                    this.setState({
-                        title: res.data[0].name,
-                        content: res.data[0].content,
-                        single: true
-                    });
+        if (prevProps.page != this.props.page) {
+            axios.get(this.props.page).then(result => {
+                let view;
+                if (Array.isArray(result.data))
+                    view = <SearchView info={result.data} />;
+                else view = <ResultView info={result.data} />;
+                this.setState({ view: view });
             });
         }
     }
 
     componentWillUnmount() {
-        axios.post('/logout', { loginkey: this.state.loginkey }).then(res => {
-            console.log(res.data);
-        });
+        axios.post('/logout', { loginkey: this.state.key });
     }
 
-    changeKey(loginkey) {
-        this.setState({ loginkey: loginkey });
+    changeKey(key) {
+        this.setState({ key: key });
     }
 
     render() {
-        let styles = {
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 4
-        };
-
-        let adminTools;
-        let block;
-        if (this.state.single) {
-            block = (
-                <ResultView
-                    title={this.state.title}
-                    content={this.state.content}
-                    style={styles}
-                    loginkey={this.state.loginkey}
-                />
-            );
-        } else {
-            block = <SearchView res={this.state.content} style={styles} />;
-        }
-
-        if (this.state.loginkey != undefined) {
-            adminTools = <AdminToolbar />;
-        }
-
         return (
             <>
                 <main>
-                    {block}
+                    {this.state.view}
                     <LinkBar />
-                    <FloatingPanel
-                        width={this.props.width}
-                        show={this.props.loginShow}
-                    >
-                        <LoginForm
-                            handleLogin={this.props.handleLogin}
-                            changeKey={this.changeKey}
-                        />
-                    </FloatingPanel>
                 </main>
-                {adminTools}
+                {this.state.key != undefined ? <AdminToolbar /> : <></>}
+                <FloatingPanel
+                    width={this.props.width}
+                    show={this.props.loginShow}
+                >
+                    <LoginForm
+                        handleLogin={this.props.handleLogin}
+                        changeKey={this.changeKey}
+                    />
+                </FloatingPanel>
             </>
-        );
-    }
-}
-
-class AdminToolbar extends Component {
-    render() {
-        return (
-            <div className="toolbar">
-                <p>Admin Tools</p>
-                <input type="button" value="edit" />
-                <input type="button" value="new" />
-            </div>
         );
     }
 }

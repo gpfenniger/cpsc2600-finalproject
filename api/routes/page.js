@@ -1,9 +1,12 @@
-const { pageParams, checkValidationErrors } = require('../controllers/validation');
+const {
+    pageParams,
+    checkValidationErrors
+} = require('../controllers/validation');
 const Page = require('../../database/models/page');
 module.exports = require('express')
     .Router()
     .get(['/page', '/page/:slug'], (req, res) => {
-        Page.find(
+        Page.findOne(
             req.params.slug ? { slug: req.params.slug } : {}
         ).then(doc => res.send(doc));
     })
