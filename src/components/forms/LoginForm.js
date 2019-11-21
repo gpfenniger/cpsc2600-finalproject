@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { login } from '../../services/ServiceWorker';
+import { login } from '../../services/Services';
 
 export default class LoginForm extends Component {
     constructor() {
@@ -10,10 +10,7 @@ export default class LoginForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         login(event.target[0].value, event.target[1].value)
-            .then(key => {
-                console.log(key);
-                this.props.changeKey(key);
-            })
+            .then(key => this.props.changeKey(key))
             .catch(err => {
                 //TODO Login Failed
                 console.log(err);
