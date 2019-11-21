@@ -5,7 +5,7 @@ import AdminToolbar from '../components/body/AdminToolbar';
 import LinkBar from './LinkBar';
 import FloatingPanel from '../components/FloatingPanel';
 import LoginForm from '../components/forms/LoginForm';
-import { getLink } from '../services/Services';
+import { getLink, logout } from '../services/Services';
 
 export default class Content extends Component {
     constructor(props) {
@@ -40,7 +40,7 @@ export default class Content extends Component {
     }
 
     componentWillUnmount() {
-        axios.post('/logout', { loginkey: this.state.key });
+        logout(this.state.key);
     }
 
     changeKey(key) {

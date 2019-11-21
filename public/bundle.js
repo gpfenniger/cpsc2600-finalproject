@@ -3783,6 +3783,20 @@ function isnan(val) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/desktop.css":
+/*!**********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/desktop.css ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".desktop header {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n}\n\n.desktop header ul {\n    display: flex;\n    flex: 2;\n}\n\n.desktop main {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n", ""]);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css":
 /*!********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css ***!
@@ -3797,6 +3811,20 @@ exports.push([module.i, "form input,\nform textarea,\nform select {\n    backgro
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/mobile.css":
+/*!*********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/mobile.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".mobile header {\n    padding-bottom: 15px;\n}\n\n.mobile header h2 {\n    margin-top: 0;\n    padding-top: 40px;\n    padding-bottom: 10px;\n}\n\n.mobile header ul {\n    padding-left: 0;\n}\n\n.mobile {\n    text-align: center;\n}\n", ""]);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/style.css":
 /*!********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/style.css ***!
@@ -3806,7 +3834,7 @@ exports.push([module.i, "form input,\nform textarea,\nform select {\n    backgro
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\ntextarea,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n    display: flex;\n    flex-direction: row;\n    flex: 2;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    background-color: #e5e9f0;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n    margin-bottom: 15px;\n}\n\nmain {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n\n.rounded {\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\ntextarea,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    background-color: #e5e9f0;\n    box-shadow: 0 1px 4px #434c5e;\n    margin-bottom: 15px;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n\n.rounded {\n    border-radius: 5px;\n}\n", ""]);
 
 
 /***/ }),
@@ -19198,6 +19226,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_style_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
 /* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_forms_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles_mobile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/mobile.css */ "./src/styles/mobile.css");
+/* harmony import */ var _styles_mobile_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_mobile_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styles_desktop_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/desktop.css */ "./src/styles/desktop.css");
+/* harmony import */ var _styles_desktop_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_desktop_css__WEBPACK_IMPORTED_MODULE_6__);
+
+
 
 
 
@@ -19292,6 +19326,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Mobile; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _main_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../main/Header */ "./src/main/Header.js");
+/* harmony import */ var _main_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main/Footer */ "./src/main/Footer.js");
+/* harmony import */ var _main_Content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../main/Content */ "./src/main/Content.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19312,6 +19349,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
 var Mobile =
 /*#__PURE__*/
 function (_Component) {
@@ -19326,7 +19366,17 @@ function (_Component) {
   _createClass(Mobile, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mobile"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        changePage: this.props.changePage,
+        mobile: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Content__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        page: this.props.page,
+        handleLogin: this.props.handleLogin,
+        loginShow: this.props.loginShow,
+        width: this.props.width
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -19442,9 +19492,7 @@ function (_Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      axios.post('/logout', {
-        loginkey: this.state.key
-      });
+      Object(_services_Services__WEBPACK_IMPORTED_MODULE_7__["logout"])(this.state.key);
     }
   }, {
     key: "changeKey",
@@ -19614,7 +19662,8 @@ function (_Component) {
         href: "/",
         style: {
           alignSelf: 'right',
-          marginRight: 40
+          marginRight: 40,
+          display: this.props.mobile ? 'none' : 'block'
         }
       }, "login"));
     }
@@ -19693,12 +19742,14 @@ function (_Component) {
 /*!***************************************!*\
   !*** ./src/services/ContentWorker.js ***!
   \***************************************/
-/*! exports provided: getLink */
+/*! exports provided: getLink, postArticle, postPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLink", function() { return getLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postArticle", function() { return postArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postPage", function() { return postPage; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -19713,6 +19764,28 @@ var getLink = function getLink(link) {
   });
 };
 
+var postArticle = function postArticle(title, content, tags, categories, key) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/article', {
+    title: title,
+    content: content,
+    tags: tags,
+    categories: categories,
+    key: key
+  })["catch"](function () {
+    return console.log(new Error('Failed to save article'));
+  });
+};
+
+var postPage = function postPage(title, content, key) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/page', {
+    title: title,
+    content: content,
+    key: key
+  })["catch"](function () {
+    return console.log(new Error('Failed to save page'));
+  });
+};
+
 
 
 /***/ }),
@@ -19721,16 +19794,24 @@ var getLink = function getLink(link) {
 /*!**********************************!*\
   !*** ./src/services/Services.js ***!
   \**********************************/
-/*! exports provided: login, getLink */
+/*! exports provided: checkkey, login, logout, getLink, postArticle, postPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UserWorker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserWorker */ "./src/services/UserWorker.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "checkkey", function() { return _UserWorker__WEBPACK_IMPORTED_MODULE_0__["checkkey"]; });
+
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "login", function() { return _UserWorker__WEBPACK_IMPORTED_MODULE_0__["login"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return _UserWorker__WEBPACK_IMPORTED_MODULE_0__["logout"]; });
 
 /* harmony import */ var _ContentWorker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContentWorker */ "./src/services/ContentWorker.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getLink", function() { return _ContentWorker__WEBPACK_IMPORTED_MODULE_1__["getLink"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "postArticle", function() { return _ContentWorker__WEBPACK_IMPORTED_MODULE_1__["postArticle"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "postPage", function() { return _ContentWorker__WEBPACK_IMPORTED_MODULE_1__["postPage"]; });
 
 
 
@@ -19742,12 +19823,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************!*\
   !*** ./src/services/UserWorker.js ***!
   \************************************/
-/*! exports provided: login */
+/*! exports provided: checkkey, login, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkkey", function() { return checkkey; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -19763,6 +19846,51 @@ var login = function login(username, password) {
   });
 };
 
+var checkkey = function checkkey(key) {
+  return new Promise(function (resolve, reject) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/admin', {
+      key: key
+    }).then(function (result) {
+      if (result) resolve(result);else reject(new Error('Failed to check login status'));
+    });
+  });
+};
+
+var logout = function logout(key) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/logout', {
+    key: key
+  })["catch"](function () {
+    return console.log(new Error('Failed to Logout'));
+  });
+};
+
+
+
+/***/ }),
+
+/***/ "./src/styles/desktop.css":
+/*!********************************!*\
+  !*** ./src/styles/desktop.css ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./desktop.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/desktop.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
 
 
 /***/ }),
@@ -19775,6 +19903,33 @@ var login = function login(username, password) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./forms.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+
+/***/ "./src/styles/mobile.css":
+/*!*******************************!*\
+  !*** ./src/styles/mobile.css ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./mobile.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/mobile.css");
 
 if (typeof content === 'string') {
   content = [[module.i, content, '']];

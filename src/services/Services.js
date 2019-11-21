@@ -1,4 +1,4 @@
-import { login } from './UserWorker';
-import { getLink } from './ContentWorker';
+import { checkkey, login, logout } from './UserWorker';
+import { getLink, postArticle, postPage } from './ContentWorker';
 
-export { login, getLink };
+export { checkkey, login, logout, getLink, postArticle, postPage };

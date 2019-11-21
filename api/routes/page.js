@@ -11,7 +11,6 @@ module.exports = require('express')
         ).then(doc => res.send(doc));
     })
     .post('/page', pageParams, (req, res) => {
-        // check if logged in
         if (checkValidationErrors(req)) {
             res.status(500).send('improper input');
         } else {

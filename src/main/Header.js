@@ -47,7 +47,11 @@ export default class Header extends Component {
                 <a
                     onClick={this.props.handleLogin}
                     href="/"
-                    style={{ alignSelf: 'right', marginRight: 40 }}
+                    style={{
+                        alignSelf: 'right',
+                        marginRight: 40,
+                        display: this.props.mobile ? 'none' : 'block'
+                    }}
                 >
                     login
                 </a>

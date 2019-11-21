@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { postPage, postArticle } from '../../services/Services';
 
 export default class Editor extends Component {
     constructor(props) {
@@ -28,21 +28,16 @@ export default class Editor extends Component {
     }
 
     handleSave() {
-        console.log({
-            name: this.state.title,
-            content: this.state.content
-        });
-        let body = {
-            name: this.state.title,
-            content: this.state.content,
-            tags: this.state.tags,
-            key: this.props.loginkey
-        };
-        axios
-            .post(`/api/${this.state.article ? 'article' : 'page'}`, body)
-            .then(() => {
-                alert('saved');
-            });
+        if (this.state.article)
+            postArticle(
+                this.state.title,
+                this.state.content,
+                this.state.tags,
+                this.state.categories,
+                this.props.loginkey
+            );
+        else
+            postPage(this.state.title, this.state.content, this.props.loginkey);
     }
 
     render() {

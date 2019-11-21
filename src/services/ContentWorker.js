@@ -11,4 +11,26 @@ let getLink = link => {
     });
 };
 
-export { getLink };
+let postArticle = (title, content, tags, categories, key) => {
+    axios
+        .post('/api/article', {
+            title: title,
+            content: content,
+            tags: tags,
+            categories: categories,
+            key: key
+        })
+        .catch(() => console.log(new Error('Failed to save article')));
+};
+
+let postPage = (title, content, key) => {
+    axios
+        .post('/api/page', {
+            title: title,
+            content: content,
+            key: key
+        })
+        .catch(() => console.log(new Error('Failed to save page')));
+};
+
+export { getLink, postArticle, postPage };

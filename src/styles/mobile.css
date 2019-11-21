@@ -1,0 +1,17 @@
+.mobile header {
+    padding-bottom: 15px;
+}
+
+.mobile header h2 {
+    margin-top: 0;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.mobile header ul {
+    padding-left: 0;
+}
+
+.mobile {
+    text-align: center;
+}

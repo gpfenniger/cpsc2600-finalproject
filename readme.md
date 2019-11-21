@@ -94,3 +94,4 @@ westernredcedar
 * /constants/* holds configuration information such as the websites colours
 * .prettierrc holds the configuration for formating the code, can work with VSCode or be run with `npm run pretty`
 * Login system was designed just for this site
+* Supports a mobile layout by using high order components
