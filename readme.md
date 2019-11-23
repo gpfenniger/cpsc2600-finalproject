@@ -89,6 +89,13 @@ westernredcedar
 * User: Username, Password
 * Category: Name, Article IDs
 
+## What I Would Improve
+
+* An important piece to add is an SSL Certificate, unfortunatley this costs money of Heroku
+* Switch out stateless components for component functions
+* Switch out using HOC for responsive design for react-breakpoints
+* Use react-router instead of passing state to make calls
+
 ## Final Notes
 
 * /constants/* holds configuration information such as the websites colours

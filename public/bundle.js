@@ -3792,7 +3792,7 @@ function isnan(val) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".desktop header {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n}\n\n.desktop header ul {\n    display: flex;\n    flex: 2;\n}\n\n.desktop main {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n", ""]);
+exports.push([module.i, ".desktop header {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n}\n\n.desktop header ul {\n    display: flex;\n    flex: 2;\n}\n\n.desktop main {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.desktop .internal {\n    width: 80%;\n}\n\n.desktop .container {\n    padding: 15px;\n}\n", ""]);
 
 
 /***/ }),
@@ -3820,7 +3820,7 @@ exports.push([module.i, "form input,\nform textarea,\nform select {\n    backgro
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".mobile header {\n    padding-bottom: 15px;\n}\n\n.mobile header h2 {\n    margin-top: 0;\n    padding-top: 40px;\n    padding-bottom: 10px;\n}\n\n.mobile header ul {\n    padding-left: 0;\n}\n\n.mobile {\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, ".mobile header {\n    padding-bottom: 15px;\n}\n\n.mobile header h2 {\n    margin-top: 0;\n    padding-top: 40px;\n    padding-bottom: 10px;\n}\n\n.mobile header ul {\n    padding-left: 0;\n}\n\n.mobile {\n    text-align: center;\n}\n\n.mobile .content p {\n    text-align: left;\n}\n\n.mobile .content {\n    padding: 10px;\n}\n", ""]);
 
 
 /***/ }),
@@ -3834,7 +3834,7 @@ exports.push([module.i, ".mobile header {\n    padding-bottom: 15px;\n}\n\n.mobi
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\ntextarea,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    background-color: #e5e9f0;\n    box-shadow: 0 1px 4px #434c5e;\n    margin-bottom: 15px;\n}\n\n.container {\n    padding: 15px;\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.internal {\n    width: 80%;\n    margin: auto;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n\n.rounded {\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\ntextarea,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    background-color: #e5e9f0;\n    box-shadow: 0 1px 4px #434c5e;\n    margin-bottom: 15px;\n}\n\n.container {\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n\n.rounded {\n    border-radius: 5px;\n}\n\n.internal {\n    width: 100%;\n    margin: auto;\n}\n\n.floating {\n    position: fixed;\n    width: min-content;\n    top: 10%;\n    left: 40%;\n    margin: auto;\n    background-color: #2e3440;\n    padding: 25px;\n    border-radius: 5px;\n}\n", ""]);
 
 
 /***/ }),
@@ -18749,18 +18749,11 @@ function (_Component) {
     key: "render",
     value: function render() {
       var style = {
-        position: 'fixed',
-        left: this.props.width / 4,
-        width: '50%',
-        top: 150,
-        backgroundColor: '#2e3440',
-        padding: 25,
-        borderRadius: 5,
         display: this.props.show ? 'block' : 'none'
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: style,
-        className: "container"
+        className: "container floating"
       }, this.props.children);
     }
   }]);
@@ -18955,7 +18948,6 @@ function (_Component) {
     value: function render() {
       var style = {
         display: 'flex',
-        flexDirection: 'column',
         flex: 4
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -19118,10 +19110,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "loginform rounded"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        style: {
+          color: 'white'
+        }
+      }, "Login Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "rounded"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         className: "rounded"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -19297,13 +19293,16 @@ function (_Component) {
         className: "desktop"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
         changePage: this.props.changePage,
-        handleLogin: this.props.handleLogin
+        handleLogin: this.props.handleLogin,
+        loginShow: this.props.loginShow
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Content__WEBPACK_IMPORTED_MODULE_2__["default"], {
         page: this.props.page,
         handleLogin: this.props.handleLogin,
         loginShow: this.props.loginShow,
         width: this.props.width
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        loginShow: this.props.loginShow
+      }));
     }
   }]);
 
@@ -19504,7 +19503,11 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, this.state.view, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LinkBar__WEBPACK_IMPORTED_MODULE_4__["default"], null)), this.state.key != undefined ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_AdminToolbar__WEBPACK_IMPORTED_MODULE_3__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FloatingPanel__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          filter: this.props.loginShow ? 'blur(5px)' : 'none'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, this.state.view, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LinkBar__WEBPACK_IMPORTED_MODULE_4__["default"], null)), this.state.key != undefined ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_AdminToolbar__WEBPACK_IMPORTED_MODULE_3__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FloatingPanel__WEBPACK_IMPORTED_MODULE_5__["default"], {
         width: this.props.width,
         show: this.props.loginShow
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_LoginForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -19567,7 +19570,11 @@ function (_Component) {
   _createClass(Footer, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "made with the MERN Stack and hosted by Heroku"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+        style: {
+          filter: this.props.loginShow ? 'blur(5px)' : 'none'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "made with the MERN Stack and hosted by Heroku"));
     }
   }]);
 
@@ -19648,7 +19655,11 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        style: {
+          filter: this.props.loginShow ? 'blur(5px)' : 'none'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/",
         onClick: this.handleClick
       }, this.state.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.links.map(function (link) {

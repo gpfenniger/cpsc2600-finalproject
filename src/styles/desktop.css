@@ -17,3 +17,11 @@
     width: 80%;
     margin: auto;
 }
+
+.desktop .internal {
+    width: 80%;
+}
+
+.desktop .container {
+    padding: 15px;
+}

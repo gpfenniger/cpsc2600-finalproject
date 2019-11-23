@@ -10,6 +10,7 @@ export default class Desktop extends Component {
                 <Header
                     changePage={this.props.changePage}
                     handleLogin={this.props.handleLogin}
+                    loginShow={this.props.loginShow}
                 />
                 <Content
                     page={this.props.page}
@@ -17,7 +18,7 @@ export default class Desktop extends Component {
                     loginShow={this.props.loginShow}
                     width={this.props.width}
                 />
-                <Footer />
+                <Footer loginShow={this.props.loginShow} />
             </div>
         );
     }

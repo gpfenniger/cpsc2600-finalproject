@@ -20,12 +20,13 @@ export default class LoginForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} className="loginform rounded">
+                <h3 style={{ color: 'white' }}>Login Form</h3>
                 <label>
-                    Username:
+                    Username
                     <input type="text" className="rounded" />
                 </label>
                 <label>
-                    Password:
+                    Password
                     <input type="password" className="rounded" />
                 </label>
                 <button type="submit" className="rounded">

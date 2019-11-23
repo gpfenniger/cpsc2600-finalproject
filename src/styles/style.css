@@ -35,7 +35,6 @@ header {
 }
 
 .container {
-    padding: 15px;
     margin: 10px;
     box-shadow: 0 0 5px #434c5e;
 }
@@ -54,11 +53,6 @@ footer {
     margin-top: 50px;
 }
 
-.internal {
-    width: 80%;
-    margin: auto;
-}
-
 .toolbar {
     width: 70%;
     margin: auto;
@@ -75,5 +69,21 @@ footer {
 }
 
 .rounded {
+    border-radius: 5px;
+}
+
+.internal {
+    width: 100%;
+    margin: auto;
+}
+
+.floating {
+    position: fixed;
+    width: min-content;
+    top: 10%;
+    left: 40%;
+    margin: auto;
+    background-color: #2e3440;
+    padding: 25px;
     border-radius: 5px;
 }

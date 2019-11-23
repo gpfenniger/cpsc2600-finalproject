@@ -50,11 +50,17 @@ export default class Content extends Component {
     render() {
         return (
             <>
-                <main>
-                    {this.state.view}
-                    <LinkBar />
-                </main>
-                {this.state.key != undefined ? <AdminToolbar /> : <></>}
+                <div
+                    style={{
+                        filter: this.props.loginShow ? 'blur(5px)' : 'none'
+                    }}
+                >
+                    <main>
+                        {this.state.view}
+                        <LinkBar />
+                    </main>
+                    {this.state.key != undefined ? <AdminToolbar /> : <></>}
+                </div>
                 <FloatingPanel
                     width={this.props.width}
                     show={this.props.loginShow}

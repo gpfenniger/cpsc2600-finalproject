@@ -6,7 +6,6 @@ export default class ResultView extends Component {
     render() {
         let style = {
             display: 'flex',
-            flexDirection: 'column',
             flex: 4
         };
         return (

@@ -27,7 +27,9 @@ export default class Header extends Component {
 
     render() {
         return (
-            <header>
+            <header
+                style={{ filter: this.props.loginShow ? 'blur(5px)' : 'none' }}
+            >
                 <h2>
                     <a href="/" onClick={this.handleClick}>
                         {this.state.title}
