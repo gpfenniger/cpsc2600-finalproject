@@ -1,35 +1,28 @@
-const { checkValidationErrors } = require('./validation');
 const Article = require('../../database/models/article');
+const { find, findOne, save, update } = require('../controllers/common');
 
 exports.getArticles = (req, res) => {
-    let params = {};
-    if (req.params.slug) params.slug = req.params.slug;
-    Article.find(params, (err, docs) => {
-        if (err) {
+    (req.params.name
+        ? findOne(Article, { name: req.params.name })
+        : find(Article, {})
+    )
+        .then(docs => res.status(200).send(docs))
+        .catch(err => {
             console.log(err);
-            res.status(404).send('error');
-        } else {
-            res.status(200).send(docs);
-        }
-    });
-}
+            res.status(404);
+        });
+};
 
 exports.postArticle = (req, res) => {
-    if (checkValidationErrors(req)) {
-        res.status(500).send('improper input');
-    } else {
+    save(
         Article({
             name: req.body.name,
             content: req.body.content,
             slug: req.body.name.toLowerCase().replace(' ', '_'),
             tags: req.body.tags
-        }).save(err => {
-            if (err) console.log(err);
-        });
-    }
-}
+        }),
+        res
+    );
+};
 
-//TODO delete article
-exports.deleteArticle = (req, res) => {
-    console.log("TODO");
-}
+exports.updateArticle = (req, res) => {};

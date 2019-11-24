@@ -1,22 +1,24 @@
-/*
-    Blog Router should support full set of RESTful operations
-    HTTP Requests:
-        GET, POST, DELETE
-        OPTIONS
-*/
+/**
+ * Article Router
+ * Supports GET, POST, PUT, DELETE, OPTIONS
+ * @module api/routes/article
+ */
 
-const { getArticles, postArticle, deleteArticle } = require("../controllers/article");
-const { articleParams } = require('../controllers/validation');
+const {
+    getArticles,
+    postArticle,
+    deleteArticle
+} = require('../controllers/article');
 
 module.exports = require('express')
     .Router()
     .get(['/article', '/article/:slug'], (req, res) => {
         getArticles(req, res);
     })
-    .post('/article', articleParams, (req, res) => {
+    .post('/article', (req, res) => {
         postArticle(req, res);
     })
-    .delete('/article/:slug', (req, res) => {
+    .delete('/article', (req, res) => {
         deleteArticle(req, res);
     })
     .options('/article', (req, res) => {

@@ -1,31 +1,24 @@
-/*
-    External Router
-    This file brings all of the middleware and
-    routers together to pass back to the entry
-    file.
-
-    Routers:
-        blogRouter -> handles requests for /api/article
-        pageRouter -> handles requests for /api/page
-        userRouter -> handles requests for /usr/login:admin:logout
-    Middleware Chain:
-        /api/page /api/article POST privelege check
-*/
+/**
+ * Route and Middleware Aggregator
+ * @module api/routes
+ * Middleware Chain
+ *      Privleges - DELETE, POST, PUT
+ *      Validation
+ *      Sanitization
+ *      Errors
+ */
 
 const blogRouter = require('./routes/blog');
 const pageRouter = require('./routes/page');
 const userRouter = require('./routes/user');
-const { getKeys } = require('./routes/user');
+const cateogryRouter = require('./routes/category');
+const validation = require('./middleware/validation');
+const sanitization = require('./middleware/sanitization');
+const privleges = require('./middleware/privleges');
+const errorMiddleware = require('./middleware/errors');
 
 module.exports = require('express')
     .Router()
-    .use(['/api/page', '/api/article'], (req, res, next) => {
-        /* this middleware checks if user is logged in */
-        if (req.method === 'POST') {
-            if (getKeys().filter(key => key.key == req.body.key).length > 0) {
-                next();
-            }
-        } else next();
-    })
-    .use('/api', [blogRouter, pageRouter])
-    .use('/', userRouter);
+    .use('/api', [privleges, validation, sanitization])
+    .use('/', [errorMiddleware, userRouter])
+    .use('/api', [blogRouter, pageRouter, cateogryRouter]);
