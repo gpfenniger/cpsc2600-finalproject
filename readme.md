@@ -20,13 +20,13 @@ This site is deployed using Heroku. The sites deployment is attached to this pro
 
 ## Tech Stack
 
-* Mongoose
-* Express
-* React
-* Node
-* Webpack
-* Axios
-* Heroku
+-   Mongoose
+-   Express
+-   React
+-   Node
+-   Webpack
+-   Axios
+-   Heroku
 
 ## API Documentation
 
@@ -45,12 +45,14 @@ This site is deployed using Heroku. The sites deployment is attached to this pro
 | ----------- | --------------------- |
 | 200         | OK                    |
 | 201         | Document Created      |
+| 202         | Accepted              |
 | 204         | No Content            |
 | 307         | Redirected URI        |
 | 400         | Improper Request      |
 | 401         | Unauthorized          |
 | 404         | URI Not Found         |
 | 408         | Request Timeout       |
+| 412         | Failed to Validate    |
 | 500         | Internal Server Error |
 | 501         | Not Implemented       |
 
@@ -59,7 +61,7 @@ This site is deployed using Heroku. The sites deployment is attached to this pro
 | Function Name | Endpoint                  | Description                                            |
 | ------------- | ------------------------- | ------------------------------------------------------ |
 | Admin Access  | [/api/article, /api/page] | checks if user has permission before creating document |
-| Error Handler | /api/*                    | checks for any errors                                  |
+| Error Handler | /api/\*                   | checks for any errors                                  |
 
 POST Validation can be found in /api/validation.js
 
@@ -84,21 +86,21 @@ westernredcedar
 
 ## MongoDB Collections and Schemas
 
-* Article: Name, Content, Slug, Created, Tags
-* Page: Name, Content, Slug
-* User: Username, Password
-* Category: Name, Article IDs
+-   Article: Name, Content, Slug, Created, Tags
+-   Page: Name, Content, Slug
+-   User: Username, Password
+-   Category: Name, Article IDs
 
 ## What I Would Improve
 
-* An important piece to add is an SSL Certificate, unfortunatley this costs money of Heroku
-* Switch out stateless components for component functions
-* Switch out using HOC for responsive design for react-breakpoints
-* Use react-router instead of passing state to make calls
+-   An important piece to add is an SSL Certificate, unfortunatley this costs money of Heroku
+-   Switch out stateless components for component functions
+-   Switch out using HOC for responsive design for react-breakpoints
+-   Use react-router instead of passing state to make calls
 
 ## Final Notes
 
-* /constants/* holds configuration information such as the websites colours
-* .prettierrc holds the configuration for formating the code, can work with VSCode or be run with `npm run pretty`
-* Login system was designed just for this site
-* Supports a mobile layout by using high order components
+-   /constants/\* holds configuration information such as the websites colours
+-   .prettierrc holds the configuration for formating the code, can work with VSCode or be run with `npm run pretty`
+-   Login system was designed just for this site
+-   Supports a mobile layout by using high order components

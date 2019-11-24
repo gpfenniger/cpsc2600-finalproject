@@ -1,5 +1,7 @@
 /**
  * Common Controller Module
+ * This module wraps common Mongoose API calls to
+ * avoid code repition
  * @module api/controllers/common
  */
 
@@ -34,6 +36,38 @@ exports.findOne = (model, params) => {
 };
 
 /**
+ * Processes a search request and sends result as response
+ * @param {Mongoose.Model} model - collection to search
+ * @param {Object} params - search conditions object
+ * @param {Object} res - reponse route object
+ * @param {Object} next - next route object
+ */
+exports.get = (model, params, res, next) => {
+    this.find(model, params)
+        .then(docs => res.status(200).send(docs))
+        .catch(() => {
+            res.status(400);
+            next(new Error('Failed to Find Documents'));
+        });
+};
+
+/**
+ * Finds a single document based on a set of parameters and sends as response
+ * @param {Mongoose.Model} model - collection to search
+ * @param {Object} params - search conditions object
+ * @param {Object} res - reponse route object
+ * @param {Object} next - next route object
+ */
+exports.getOne = (model, params, res, next) => {
+    this.findOne(model, params)
+        .then(doc => res.status(200).send(doc))
+        .catch(() => {
+            res.status(400);
+            next(new Error('Failed to Find Document'));
+        });
+};
+
+/**
  * Creates or updates a document in a provided collection
  * and sends a response to the front end
  * @param {Mongoose.Document} document - a document to save
@@ -58,10 +92,10 @@ exports.save = (document, res) => {
 exports.remove = (model, params, res) => {
     model
         .deleteOne(params)
-        .then(() => res.send(true))
+        .then(() => res.status(200))
         .catch(() => {
-            console.log(new Error('failed to delete document'));
-            res.status(404).send(false);
+            console.log(new Error('Failed to Delete Document'));
+            res.status(404);
         });
 };
 

@@ -1,6 +1,13 @@
+const fs = require('fs');
+
 module.exports = require('express')
     .Router()
     .use((error, req, res, next) => {
-        // check for errors and report them smartly
-        if (!error) next();
+        if (error) {
+            fs.appendFile(
+                '../../logs/error_log.txt',
+                `ERROR : ${error.name} :` + new Date()
+            );
+            res.json(error);
+        } else next();
     });

@@ -4,26 +4,14 @@
  */
 
 const Page = require('../../database/models/page');
-const {
-    find,
-    findOne,
-    save,
-    remove,
-    update
-} = require('../controllers/common');
+const { get, getOne, save, remove, update } = require('../controllers/common');
 
 module.exports = require('express')
     .Router()
-    .get(['/page', '/page/:slug'], (req, res) => {
-        console.log(req.params.slug);
-
-        let promise = req.params.slug
-            ? findOne(Page, { slug: req.params.slug })
-            : find(Page, {});
-
-        promise
-            .then(docs => res.status(200).send(docs))
-            .catch(err => console.log(err));
+    .get(['/page', '/page/:slug'], (req, res, next) => {
+        req.params.slug
+            ? getOne(Page, { slug: req.params.slug }, res, next)
+            : get(Page, {}, res, next);
     })
     .post('/page', (req, res) => {
         save(

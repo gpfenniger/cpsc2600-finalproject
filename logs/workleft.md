@@ -1,7 +1,7 @@
 # Work Left TODO
 
 **Last Edited:**
-November 21st
+November 23rd
 
 ## Front End
 
@@ -19,3 +19,4 @@ November 21st
 -   Disconnect from database
 -   Document all modules
 -   Cleanup user router
+-   When getting articles also grab categories and links
