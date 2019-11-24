@@ -6,12 +6,13 @@
 
 const { get, save, remove } = require('../controllers/common');
 const { getArticle, updateArticle } = require('../controllers/article');
+const Article = require('../../database/models/article');
 
 module.exports = require('express')
     .Router()
     .get(['/article', '/article/:slug'], (req, res, next) => {
         req.params.slug
-            ? getArticle(res, req, next)
+            ? getArticle(req, res, next)
             : get(Article, {}, res, next);
     })
     .post('/article', (req, res, next) => {

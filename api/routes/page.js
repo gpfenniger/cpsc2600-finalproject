@@ -4,14 +4,14 @@
  */
 
 const Page = require('../../database/models/page');
-const { get, getOne, save, remove } = require('../controllers/common');
-const { updatePage } = require('../controllers/page');
+const { getOne, save, remove } = require('../controllers/common');
+const { updatePage, getPage } = require('../controllers/page');
 
 module.exports = require('express')
     .Router()
     .get(['/page', '/page/:slug'], (req, res, next) => {
         req.params.slug
-            ? getOne(Page, { slug: req.params.slug }, res, next)
+            ? getPage(Page, { slug: req.params.slug }, res, next)
             : get(Page, {}, res, next);
     })
     .post('/page', (req, res, next) => {

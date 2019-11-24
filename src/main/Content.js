@@ -11,8 +11,9 @@ export default class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            view: <></>,
-            key: undefined
+            view: <ResultView info={{ name: '', content: '' }} />,
+            key: undefined,
+            sections: []
         };
         this.changeKey = this.changeKey.bind(this);
     }
@@ -20,7 +21,10 @@ export default class Content extends Component {
     componentDidMount() {
         getLink(this.props.page)
             .then(result =>
-                this.setState({ view: <ResultView info={result.data} /> })
+                this.setState({
+                    view: <ResultView info={result.data} />,
+                    sections: result.data.sections
+                })
             )
             .catch(err => console.log(err));
     }
@@ -31,9 +35,17 @@ export default class Content extends Component {
                 .then(result => {
                     let view;
                     if (Array.isArray(result.data))
-                        view = <SearchView info={result.data} />;
+                        view = (
+                            <SearchView
+                                info={result.data}
+                                changePage={this.props.changePage}
+                            />
+                        );
                     else view = <ResultView info={result.data} />;
-                    this.setState({ view: view });
+                    this.setState({
+                        view: view,
+                        sections: result.data.sections
+                    });
                 })
                 .catch(err => console.log(err));
         }
@@ -57,7 +69,7 @@ export default class Content extends Component {
                 >
                     <main>
                         {this.state.view}
-                        <LinkBar />
+                        <LinkBar sections={this.state.sections} />
                     </main>
                     {this.state.key != undefined ? <AdminToolbar /> : <></>}
                 </div>

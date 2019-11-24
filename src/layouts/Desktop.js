@@ -15,6 +15,7 @@ export default class Desktop extends Component {
                 <Content
                     page={this.props.page}
                     handleLogin={this.props.handleLogin}
+                    changePage={this.props.changePage}
                     loginShow={this.props.loginShow}
                     width={this.props.width}
                 />

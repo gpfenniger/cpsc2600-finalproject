@@ -3792,7 +3792,7 @@ function isnan(val) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".desktop header {\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    box-shadow: 0px 3px 5px #434c5e;\n    padding-left: 15px;\n}\n\n.desktop header ul {\n    display: flex;\n    flex: 2;\n}\n\n.desktop main {\n    display: flex;\n    flex-direction: row;\n    width: 80%;\n    margin: auto;\n}\n\n.desktop .internal {\n    width: 80%;\n}\n\n.desktop .container {\n    padding: 15px;\n}\n", ""]);
+exports.push([module.i, ".desktop header {\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: baseline;\r\n    box-shadow: 0px 3px 5px #434c5e;\r\n    padding-left: 15px;\r\n}\r\n\r\n.desktop header ul {\r\n    display: flex;\r\n    flex: 2;\r\n}\r\n\r\n.desktop main {\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 80%;\r\n    margin: auto;\r\n}\r\n\r\n.desktop .internal {\r\n    width: 80%;\r\n}\r\n\r\n.desktop .container {\r\n    padding: 15px;\r\n}\r\n", ""]);
 
 
 /***/ }),
@@ -3806,7 +3806,7 @@ exports.push([module.i, ".desktop header {\n    display: flex;\n    flex-directi
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "form input,\nform textarea,\nform select {\n    background-color: #81a1c1;\n    border-color: #8fbcbb;\n    padding: 5px;\n    margin: 15px;\n}\n\nform input:focus,\nform textarea:focus,\nform select:focus {\n    background-color: #88c0d0;\n}\n\n.editor {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n    margin: auto;\n}\n\n.editor input[type='button'] {\n    width: 100px;\n}\n\n.editor textarea {\n    width: 80%;\n}\n\n.editor .options {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n}\n\n.loginform {\n    display: flex;\n    flex-direction: column;\n    text-align: center;\n}\n\n.loginform label {\n    color: #eceff4;\n}\n\n.loginform input {\n    background-color: #eceff4;\n    padding: 5px;\n    margin: 25px;\n    width: 250px;\n}\n\n.loginform button {\n    background-color: #eceff4;\n    width: 100px;\n    align-self: center;\n}\n", ""]);
+exports.push([module.i, "form input,\r\nform textarea,\r\nform select {\r\n    background-color: #81a1c1;\r\n    border-color: #8fbcbb;\r\n    padding: 5px;\r\n    margin: 15px;\r\n}\r\n\r\nform input:focus,\r\nform textarea:focus,\r\nform select:focus {\r\n    background-color: #88c0d0;\r\n}\r\n\r\n.editor {\r\n    display: flex;\r\n    flex-direction: column;\r\n    text-align: center;\r\n    margin: auto;\r\n}\r\n\r\n.editor input[type='button'] {\r\n    width: 100px;\r\n}\r\n\r\n.editor textarea {\r\n    width: 80%;\r\n}\r\n\r\n.editor .options {\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-self: center;\r\n}\r\n\r\n.loginform {\r\n    display: flex;\r\n    flex-direction: column;\r\n    text-align: center;\r\n}\r\n\r\n.loginform label {\r\n    color: #eceff4;\r\n}\r\n\r\n.loginform input {\r\n    background-color: #eceff4;\r\n    padding: 5px;\r\n    margin: 25px;\r\n    width: 250px;\r\n}\r\n\r\n.loginform button {\r\n    background-color: #eceff4;\r\n    width: 100px;\r\n    align-self: center;\r\n}\r\n", ""]);
 
 
 /***/ }),
@@ -3820,7 +3820,7 @@ exports.push([module.i, "form input,\nform textarea,\nform select {\n    backgro
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".mobile header {\n    padding-bottom: 15px;\n}\n\n.mobile header h2 {\n    margin-top: 0;\n    padding-top: 40px;\n    padding-bottom: 10px;\n}\n\n.mobile header ul {\n    padding-left: 0;\n}\n\n.mobile {\n    text-align: center;\n}\n\n.mobile .content p {\n    text-align: left;\n}\n\n.mobile .content {\n    padding: 10px;\n}\n", ""]);
+exports.push([module.i, ".mobile header {\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.mobile header h2 {\r\n    margin-top: 0;\r\n    padding-top: 40px;\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.mobile header ul {\r\n    padding-left: 0;\r\n}\r\n\r\n.mobile {\r\n    text-align: center;\r\n}\r\n\r\n.mobile .content p {\r\n    text-align: left;\r\n}\r\n\r\n.mobile .content {\r\n    padding: 10px;\r\n}\r\n", ""]);
 
 
 /***/ }),
@@ -3834,7 +3834,7 @@ exports.push([module.i, ".mobile header {\n    padding-bottom: 15px;\n}\n\n.mobi
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "body {\n    background-color: #eceff4;\n    margin: 0;\n}\n\nh1,\nh2,\nh3,\nh4,\na,\nli,\nlabel,\ntextarea,\np {\n    color: #2e3440;\n    font-family: sans-serif;\n}\n\nheader ul {\n    list-style-type: none;\n}\n\nheader li {\n    margin: 25px;\n}\n\nheader a {\n    text-decoration: none;\n}\n\nheader {\n    background-color: #e5e9f0;\n    box-shadow: 0 1px 4px #434c5e;\n    margin-bottom: 15px;\n}\n\n.container {\n    margin: 10px;\n    box-shadow: 0 0 5px #434c5e;\n}\n\n.linkBar {\n    background-color: #d8dee9;\n    text-align: center;\n}\n\n.content {\n    background-color: #d8dee9;\n}\n\nfooter {\n    text-align: center;\n    margin-top: 50px;\n}\n\n.toolbar {\n    width: 70%;\n    margin: auto;\n    background-color: #434c5e;\n    padding: 5px;\n    border-radius: 5px;\n    margin-top: 25px;\n    display: flex;\n    flex-direction: row;\n}\n\n.toolbar p {\n    color: #eceff4;\n}\n\n.rounded {\n    border-radius: 5px;\n}\n\n.internal {\n    width: 100%;\n    margin: auto;\n}\n\n.floating {\n    position: fixed;\n    width: min-content;\n    top: 10%;\n    left: 40%;\n    margin: auto;\n    background-color: #2e3440;\n    padding: 25px;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "body {\r\n    background-color: #eceff4;\r\n    margin: 0;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\na,\r\nli,\r\nlabel,\r\ntextarea,\r\np {\r\n    color: #2e3440;\r\n    font-family: sans-serif;\r\n}\r\n\r\nheader ul {\r\n    list-style-type: none;\r\n}\r\n\r\nheader li {\r\n    margin: 25px;\r\n}\r\n\r\nheader a {\r\n    text-decoration: none;\r\n}\r\n\r\nheader {\r\n    background-color: #e5e9f0;\r\n    box-shadow: 0 1px 4px #434c5e;\r\n    margin-bottom: 15px;\r\n}\r\n\r\n.container {\r\n    margin: 10px;\r\n    box-shadow: 0 0 5px #434c5e;\r\n}\r\n\r\n.linkBar {\r\n    background-color: #d8dee9;\r\n    text-align: center;\r\n    padding-top: 20px;\r\n}\r\n\r\n.content {\r\n    background-color: #d8dee9;\r\n}\r\n\r\nfooter {\r\n    text-align: center;\r\n    margin-top: 50px;\r\n}\r\n\r\n.toolbar {\r\n    width: 70%;\r\n    margin: auto;\r\n    background-color: #434c5e;\r\n    padding: 5px;\r\n    border-radius: 5px;\r\n    margin-top: 25px;\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n\r\n.toolbar p {\r\n    color: #eceff4;\r\n}\r\n\r\n.rounded {\r\n    border-radius: 5px;\r\n}\r\n\r\n.internal {\r\n    width: 100%;\r\n    margin: auto;\r\n    margin-top: 20px;\r\n}\r\n\r\n.floating {\r\n    position: fixed;\r\n    width: min-content;\r\n    top: 10%;\r\n    left: 40%;\r\n    margin: auto;\r\n    background-color: #2e3440;\r\n    padding: 25px;\r\n    border-radius: 5px;\r\n}\r\n", ""]);
 
 
 /***/ }),
@@ -18979,6 +18979,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var uuid_v4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uuid/v4 */ "./node_modules/uuid/v4.js");
 /* harmony import */ var uuid_v4__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(uuid_v4__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Card */ "./src/components/body/Card.js");
+/* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-html-parser */ "./node_modules/react-html-parser/lib/index.js");
+/* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_html_parser__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18989,13 +18991,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -19006,15 +19009,27 @@ var SearchView =
 function (_Component) {
   _inherits(SearchView, _Component);
 
-  function SearchView() {
+  function SearchView(props) {
+    var _this;
+
     _classCallCheck(this, SearchView);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SearchView).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SearchView).call(this, props));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(SearchView, [{
+    key: "handleClick",
+    value: function handleClick(event) {
+      event.preventDefault();
+      this.props.changePage(event.target.href);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var style = {
         display: 'flex',
         flexDirection: 'column',
@@ -19028,9 +19043,11 @@ function (_Component) {
       }), this.props.info.map(function (result) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
           title: result.name,
-          desc: result.content,
           key: uuid_v4__WEBPACK_IMPORTED_MODULE_1___default()()
-        });
+        }, react_html_parser__WEBPACK_IMPORTED_MODULE_3___default()(result.content.substring(0, 250)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "/api/article/".concat(result.slug),
+          onClick: _this2.handleClick
+        }, "read more..."));
       }));
     }
   }]);
@@ -19298,6 +19315,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Content__WEBPACK_IMPORTED_MODULE_2__["default"], {
         page: this.props.page,
         handleLogin: this.props.handleLogin,
+        changePage: this.props.changePage,
         loginShow: this.props.loginShow,
         width: this.props.width
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -19444,8 +19462,14 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Content).call(this, props));
     _this.state = {
-      view: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null),
-      key: undefined
+      view: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_ResultView__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        info: {
+          name: '',
+          content: ''
+        }
+      }),
+      key: undefined,
+      sections: []
     };
     _this.changeKey = _this.changeKey.bind(_assertThisInitialized(_this));
     return _this;
@@ -19460,7 +19484,8 @@ function (_Component) {
         return _this2.setState({
           view: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_ResultView__WEBPACK_IMPORTED_MODULE_1__["default"], {
             info: result.data
-          })
+          }),
+          sections: result.data.sections
         });
       })["catch"](function (err) {
         return console.log(err);
@@ -19475,13 +19500,15 @@ function (_Component) {
         Object(_services_Services__WEBPACK_IMPORTED_MODULE_7__["getLink"])(this.props.page).then(function (result) {
           var view;
           if (Array.isArray(result.data)) view = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_SearchView__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            info: result.data
+            info: result.data,
+            changePage: _this3.props.changePage
           });else view = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_ResultView__WEBPACK_IMPORTED_MODULE_1__["default"], {
             info: result.data
           });
 
           _this3.setState({
-            view: view
+            view: view,
+            sections: result.data.sections
           });
         })["catch"](function (err) {
           return console.log(err);
@@ -19507,7 +19534,9 @@ function (_Component) {
         style: {
           filter: this.props.loginShow ? 'blur(5px)' : 'none'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, this.state.view, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LinkBar__WEBPACK_IMPORTED_MODULE_4__["default"], null)), this.state.key != undefined ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_AdminToolbar__WEBPACK_IMPORTED_MODULE_3__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FloatingPanel__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, this.state.view, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LinkBar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        sections: this.state.sections
+      })), this.state.key != undefined ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_AdminToolbar__WEBPACK_IMPORTED_MODULE_3__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FloatingPanel__WEBPACK_IMPORTED_MODULE_5__["default"], {
         width: this.props.width,
         show: this.props.loginShow
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_LoginForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -19699,6 +19728,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return LinkBar; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var uuid_v4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uuid/v4 */ "./node_modules/uuid/v4.js");
+/* harmony import */ var uuid_v4__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(uuid_v4__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19719,6 +19750,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var LinkBar =
 /*#__PURE__*/
 function (_Component) {
@@ -19736,9 +19768,20 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container linkBar",
         style: {
-          flex: 1
+          flex: 1,
+          paddingTop: 35
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Links"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Related Links"), this.props.sections ? this.props.sections.map(function (section) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: uuid_v4__WEBPACK_IMPORTED_MODULE_1___default()()
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+          key: uuid_v4__WEBPACK_IMPORTED_MODULE_1___default()()
+        }, section.name), section.links.map(function (link) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            key: uuid_v4__WEBPACK_IMPORTED_MODULE_1___default()()
+          }, link.name);
+        }));
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "No Links"));
     }
   }]);
 

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-exports.Category = mongoose.model(
+module.exports = mongoose.model(
     'Category',
     new mongoose.Schema({
         name: {
@@ -8,6 +8,6 @@ exports.Category = mongoose.model(
             maxlength: 30,
             required: true
         },
-        articles: [ mongoose.Types.ObjectId ]
+        articles: [mongoose.Types.ObjectId]
     })
-)
+);

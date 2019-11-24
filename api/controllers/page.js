@@ -3,7 +3,7 @@
  * @module api/controllers/page
  */
 
-const { update } = require('./common');
+const { update, findOne } = require('./common');
 
 /**
  * Updates a Page document
@@ -25,4 +25,22 @@ exports.updatePage = (req, res, next) => {
         res.status(400);
         next(new Error('Bad Request - No Slug'));
     }
+};
+
+exports.getPage = (model, params, res, next) => {
+    findOne(model, params)
+        .then(page => {
+            res.status(200).send({
+                name: page.name,
+                content: page.content,
+                slug: page.slug,
+                sections: [
+                    {
+                        name: 'No Links',
+                        links: []
+                    }
+                ]
+            });
+        })
+        .catch(err => next(err));
 };

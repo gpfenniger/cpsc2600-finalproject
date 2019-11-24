@@ -16,14 +16,27 @@ const { find, findOne } = require('./common');
 exports.getArticle = (req, res, next) => {
     findOne(Article, { slug: req.params.slug })
         .then(doc => {
-            find(Category, {
-                _id: {
-                    $in: article._id
-                }
-            }).then(categories => {
-                doc['categories'] = categories;
-                res.status(200).send(doc);
-            });
+            find(Category, {})
+                .then(categories => {
+                    res.status(200).send({
+                        name: doc.name,
+                        slug: doc.slug,
+                        content: doc.content,
+                        sections: [
+                            {
+                                name: 'Categories',
+                                links: categories.filter(
+                                    category =>
+                                        category.articles.indexOf(doc._id) != -1
+                                )
+                            }
+                        ]
+                    });
+                })
+                .catch(err => {
+                    res.status(500);
+                    next(err);
+                });
         })
         .catch(err => {
             res.status(400);

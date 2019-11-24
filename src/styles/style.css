@@ -42,6 +42,7 @@ header {
 .linkBar {
     background-color: #d8dee9;
     text-align: center;
+    padding-top: 20px;
 }
 
 .content {
@@ -75,6 +76,7 @@ footer {
 .internal {
     width: 100%;
     margin: auto;
+    margin-top: 20px;
 }
 
 .floating {
