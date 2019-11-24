@@ -4,13 +4,14 @@
  * @module api/routes/article
  */
 
-const { get, getOne, save, remove, update } = require('../controllers/common');
+const { get, save, remove } = require('../controllers/common');
+const { getArticle, updateArticle } = require('../controllers/article');
 
 module.exports = require('express')
     .Router()
     .get(['/article', '/article/:slug'], (req, res, next) => {
         req.params.slug
-            ? getOne(Article, { slug: req.params.slug }, res, next)
+            ? getArticle(res, req, next)
             : get(Article, {}, res, next);
     })
     .post('/article', (req, res, next) => {
@@ -21,10 +22,13 @@ module.exports = require('express')
                 slug: req.body.name.toLowerCase().replace(' ', '_'),
                 tags: req.body.tags
             }),
-            res
+            res,
+            next
         );
     })
-    .put('/article', (req, res, next) => {})
-    .delete('/article', (req, res) => {
-        remove(Page, { slug: req.body.slug }, res);
+    .put('/article', (req, res, next) => {
+        updateArticle(req, res, next);
+    })
+    .delete('/article', (req, res, next) => {
+        remove(Page, { slug: req.body.slug }, res, next);
     });

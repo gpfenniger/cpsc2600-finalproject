@@ -1,7 +1,7 @@
 # Work Left TODO
 
 **Last Edited:**
-November 23rd
+November 24th
 
 ## Front End
 
@@ -15,8 +15,7 @@ November 23rd
 ## Backend
 
 -   Add DELETE and PUT requests to all routers
--   Expand error handling
 -   Disconnect from database
--   Document all modules
 -   Cleanup user router
 -   When getting articles also grab categories and links
+-   Update article method

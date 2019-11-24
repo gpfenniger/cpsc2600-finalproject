@@ -5,24 +5,29 @@
  */
 
 const Category = require('../../database/models/category');
-const { remove } = require('../controllers/common');
-const {
-    getCategories,
-    postCategory,
-    updateCategory
-} = require('../controllers/category');
+const { get, getOne, save, remove } = require('../controllers/common');
+const { updateCategory } = require('../controllers/category');
 
 module.exports = require('express')
     .Router()
-    .get(['/category', '/category/:name'], (req, res) => {
-        getCategories(req, res);
+    .get(['/category', '/category/:name'], (req, res, next) => {
+        req.params.name
+            ? getOne(Category, { name: req.params.name }, res, next)
+            : get(Category, {}, res, next);
     })
-    .post('/category', (req, res) => {
-        postCategory(req, res);
+    .post('/category', (req, res, next) => {
+        save(
+            Category({
+                name: req.params.name,
+                articles: req.params.articles
+            }),
+            res,
+            next
+        );
     })
-    .put('/category', (req, res) => {
-        updateCategory(req, res);
+    .put('/category', (req, res, next) => {
+        updateCategory(req, res, next);
     })
-    .delete('/category', (req, res) => {
-        remove(Category, { name: req.body.name }, res);
+    .delete('/category', (req, res, next) => {
+        remove(Category, { name: req.body.name }, res, next);
     });

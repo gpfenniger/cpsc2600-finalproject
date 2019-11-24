@@ -4,7 +4,8 @@
  */
 
 const Page = require('../../database/models/page');
-const { get, getOne, save, remove, update } = require('../controllers/common');
+const { get, getOne, save, remove } = require('../controllers/common');
+const { updatePage } = require('../controllers/page');
 
 module.exports = require('express')
     .Router()
@@ -13,27 +14,20 @@ module.exports = require('express')
             ? getOne(Page, { slug: req.params.slug }, res, next)
             : get(Page, {}, res, next);
     })
-    .post('/page', (req, res) => {
+    .post('/page', (req, res, next) => {
         save(
             Page({
                 name: req.body.name,
                 content: req.body.content,
                 slug: req.body.name.toLowerCase().replace(' ', '_')
             }),
-            res
+            res,
+            next
         );
     })
-    .put('/page', (req, res) => {
-        let modifier = {};
-        if (req.body.name) {
-            modifier.name = req.body.name;
-            modifier.slug = req.body.name.toLowerCase().replace(' ', '_');
-        }
-        if (req.body.content) modifier.content = req.body.content;
-
-        if (req.body.slug) update(Page, { slug: req.body.slug }, modifier, res);
-        else res.status(400);
+    .put('/page', (req, res, next) => {
+        updatePage(req, res, next);
     })
-    .delete('/page', (req, res) => {
-        remove(Page, { slug: req.body.slug }, res);
+    .delete('/page', (req, res, next) => {
+        remove(Page, { slug: req.body.slug }, res, next);
     });

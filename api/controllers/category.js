@@ -1,29 +1,18 @@
+/**
+ * Category Controller Module
+ * @module api/controllers/category
+ */
+
 const Category = require('../../database/models/category');
-const { find, findOne, save, update } = require('../controllers/common');
+const { findOne, update } = require('./common');
 
-exports.getCategories = (req, res) => {
-    (req.params.name
-        ? findOne(Category, { name: req.params.name })
-        : find(Category, {})
-    )
-        .then(docs => res.status(200).send(docs))
-        .catch(err => {
-            console.log(err);
-            res.status(404);
-        });
-};
-
-exports.postCategory = (req, res) => {
-    save(
-        Category({
-            name: req.body.name,
-            articles: []
-        }),
-        res
-    );
-};
-
-exports.updateCategory = (req, res) => {
+/**
+ * Updates a category
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
+ */
+exports.updateCategory = (req, res, next) => {
     if (req.body.name && req.body.newName) {
         update(
             Category,
@@ -38,8 +27,8 @@ exports.updateCategory = (req, res) => {
                 update(Category, { articles: doc.articles }, doc, res);
             })
             .catch(err => {
-                console.log(err);
                 res.status(400);
+                next(err);
             });
     } else res.status(400);
 };

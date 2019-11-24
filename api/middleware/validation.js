@@ -40,7 +40,7 @@ let validate = (req, res, next, target) => {
         validationResult(req).throw();
         next();
     } catch (err) {
-        res.status(422).json({
+        res.status(412).json({
             target: target,
             msg: 'Failed to Validate'
         });

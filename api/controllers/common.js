@@ -72,14 +72,15 @@ exports.getOne = (model, params, res, next) => {
  * and sends a response to the front end
  * @param {Mongoose.Document} document - a document to save
  * @param {Object} res - the routes response object
+ * @param {Object} next
  */
-exports.save = (document, res) => {
+exports.save = (document, res, next) => {
     document
         .save()
         .then(() => res.status(201).send(true))
         .catch(() => {
-            console.log(new Error('failed to save'));
-            res.status(400).send(false);
+            res.status(400);
+            next(new Error('Failed to Save'));
         });
 };
 
@@ -88,14 +89,15 @@ exports.save = (document, res) => {
  * @param {Mongoose.Model} model - the collection to delete from
  * @param {Object} params - parameters to find a document1
  * @param {Object} res - the route response object
+ * @param {Object} next
  */
-exports.remove = (model, params, res) => {
+exports.remove = (model, params, res, next) => {
     model
         .deleteOne(params)
         .then(() => res.status(200))
         .catch(() => {
-            console.log(new Error('Failed to Delete Document'));
             res.status(404);
+            next(new Error('Failed to Delete Document'));
         });
 };
 
@@ -110,8 +112,8 @@ exports.update = (model, params, modifier, res) => {
     model
         .updateOne(params, modifier)
         .then(() => res.status(200))
-        .catch(err => {
-            console.log(err);
+        .catch(() => {
             res.status(204);
+            next(new Error('Failed to Update - No Content'));
         });
 };
