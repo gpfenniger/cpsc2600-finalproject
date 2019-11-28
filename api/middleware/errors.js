@@ -6,8 +6,9 @@ module.exports = require('express')
         if (error) {
             fs.appendFile(
                 '../../logs/error_log.txt',
-                `ERROR : ${error.name} :` + new Date()
+                `ERROR : ${error.name} :` + new Date(),
+                () => console.log('Failed to Append to Error Log')
             );
-            res.json(error);
+            res.send('Oh no! Something went wrong!');
         } else next();
     });
