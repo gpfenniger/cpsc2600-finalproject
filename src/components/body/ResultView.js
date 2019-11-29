@@ -4,12 +4,8 @@ import Card from './Card';
 
 export default class ResultView extends Component {
     render() {
-        let style = {
-            display: 'flex',
-            flex: 4
-        };
         return (
-            <Card title={this.props.info.name} style={style}>
+            <Card title={this.props.info.name} className="view">
                 {ReactHTMLParser(this.props.info.content)}
             </Card>
         );

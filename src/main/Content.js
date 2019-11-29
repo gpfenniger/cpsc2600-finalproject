@@ -6,6 +6,7 @@ import LinkBar from './LinkBar';
 import FloatingPanel from '../components/FloatingPanel';
 import LoginForm from '../components/forms/LoginForm';
 import { getLink, logout } from '../services/Services';
+import EditorView from '../components/body/EditorView';
 
 export default class Content extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ export default class Content extends Component {
             sections: []
         };
         this.changeKey = this.changeKey.bind(this);
+        this.adminAction = this.adminAction.bind(this);
     }
 
     componentDidMount() {
@@ -51,8 +53,17 @@ export default class Content extends Component {
         }
     }
 
-    componentWillUnmount() {
-        logout(this.state.key);
+    adminAction(action) {
+        switch (action) {
+            case 'new':
+                this.setState({
+                    view: <EditorView loginkey={this.state.key} />
+                });
+                break;
+            case 'edit':
+                alert('editing current article');
+                break;
+        }
     }
 
     changeKey(key) {
@@ -71,7 +82,14 @@ export default class Content extends Component {
                         {this.state.view}
                         <LinkBar sections={this.state.sections} />
                     </main>
-                    {this.state.key != undefined ? <AdminToolbar /> : <></>}
+                    {this.state.key != undefined ? (
+                        <AdminToolbar
+                            adminAction={this.adminAction}
+                            article={this.state.view.type.name == 'ResultView'}
+                        />
+                    ) : (
+                        <></>
+                    )}
                 </div>
                 <FloatingPanel
                     width={this.props.width}

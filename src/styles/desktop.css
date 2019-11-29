@@ -25,3 +25,8 @@
 .desktop .container {
     padding: 15px;
 }
+
+.desktop .view {
+    display: flex;
+    flex: 4;
+}

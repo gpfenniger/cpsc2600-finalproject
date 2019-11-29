@@ -16,12 +16,10 @@ export default class SearchView extends Component {
 
     render() {
         let style = {
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 4
+            flexDirection: 'column'
         };
         return (
-            <div style={style}>
+            <div style={style} className="view">
                 <Card title="Search Results" desc="Search Results" />
                 {this.props.info.map(result => {
                     return (

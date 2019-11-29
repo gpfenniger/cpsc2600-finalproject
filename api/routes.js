@@ -10,7 +10,7 @@
 
 const articleRouter = require('./routes/article');
 const pageRouter = require('./routes/page');
-const userRouter = require('./routes/user');
+const { userRouter } = require('./routes/user');
 const categoryRouter = require('./routes/category');
 const validation = require('./middleware/validation');
 const sanitization = require('./middleware/sanitization');

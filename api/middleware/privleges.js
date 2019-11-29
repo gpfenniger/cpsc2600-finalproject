@@ -1,3 +1,4 @@
+const { getKeys } = require('../routes/user');
 let routes = ['/article', '/category', '/page'];
 
 let privs = (req, res, next) => {

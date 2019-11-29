@@ -67,7 +67,6 @@ export default class Editor extends Component {
 
         return (
             <form className="editor">
-                <h3>Article / Page Editor</h3>
                 <label>
                     Title
                     <br />
