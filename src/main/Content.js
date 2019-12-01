@@ -61,7 +61,16 @@ export default class Content extends Component {
                 });
                 break;
             case 'edit':
-                alert('editing current article');
+                getLink(this.props.page).then(results => {
+                    this.setState({
+                        view: (
+                            <EditorView
+                                loginkey={this.state.key}
+                                info={results.data}
+                            />
+                        )
+                    });
+                });
                 break;
         }
     }

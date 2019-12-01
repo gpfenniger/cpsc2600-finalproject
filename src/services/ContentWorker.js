@@ -11,26 +11,46 @@ let getLink = link => {
     });
 };
 
-let postArticle = (title, content, tags, categories, key) => {
-    axios
-        .post('/api/article', {
-            title: title,
-            content: content,
-            tags: tags,
-            categories: categories,
-            key: key
-        })
-        .catch(() => console.log(new Error('Failed to save article')));
+let postArticle = (
+    title,
+    content,
+    tags,
+    categories,
+    key,
+    updating,
+    newTitle
+) => {
+    let document = {
+        name: title,
+        content: content,
+        tags: tags,
+        categories: categories,
+        key: key
+    };
+    if (updating) {
+        if (newTitle) document.newTitle = newTitle;
+        axios.put(document);
+    } else {
+        axios
+            .post('/api/article', document)
+            .catch(() => new Error('Failed to save article'));
+    }
 };
 
-let postPage = (title, content, key) => {
-    axios
-        .post('/api/page', {
-            title: title,
-            content: content,
-            key: key
-        })
-        .catch(() => console.log(new Error('Failed to save page')));
+let postPage = (title, content, key, updating, newTitle) => {
+    let document = {
+        title: title,
+        content: content,
+        key: key
+    };
+    if (updating) {
+        if (newTitle) document.newTitle = newTitle;
+        axios.put('/api/page', document);
+    } else {
+        axios
+            .post('/api/page', document)
+            .catch(() => console.log(new Error('Failed to save page')));
+    }
 };
 
 export { getLink, postArticle, postPage };

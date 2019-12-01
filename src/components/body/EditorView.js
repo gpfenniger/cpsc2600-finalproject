@@ -6,7 +6,7 @@ export default class EditorView extends Component {
     render() {
         return (
             <Card title="Editor" className="view">
-                <Editor loginkey={this.props.loginkey} />
+                <Editor loginkey={this.props.loginkey} info={this.props.info} />
             </Card>
         );
     }

@@ -6,9 +6,14 @@ let lengthReq = { min: 1, max: 30 };
 let validArticle = [
     check('name')
         .isString()
-        .isLength(lengthReq),
-    check('content').isString(),
-    check('tags').isArray()
+        .isLength(lengthReq)
+        .withMessage('Name is not proper'),
+    check('content')
+        .isString()
+        .withMessage('Content is not String'),
+    check('tags')
+        .isArray()
+        .withMessage('Tags are not an Array')
 ];
 
 let validCategory = [

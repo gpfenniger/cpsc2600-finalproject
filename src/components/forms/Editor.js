@@ -4,15 +4,38 @@ import { postPage, postArticle } from '../../services/Services';
 export default class Editor extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: '',
-            content: '',
-            article: true,
-            tags: []
-        };
+        console.log(this.props);
+        if (this.props.info) {
+            this.state = {
+                title: this.props.info.name,
+                content: this.props.info.content,
+                article: true,
+                tags: [],
+                updating: true
+            };
+        } else
+            this.state = {
+                title: '',
+                content: '',
+                article: true,
+                tags: [],
+                updating: false
+            };
         this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.toggleType = this.toggleType.bind(this);
+    }
+
+    componentDidUpdate(oldProps) {
+        if (this.props.info && this.props.info != oldProps.info) {
+            this.setState({
+                title: this.props.info.name,
+                content: this.props.info.content,
+                article: true,
+                updating: true,
+                tags: []
+            });
+        }
     }
 
     handleChange(event) {
@@ -34,10 +57,16 @@ export default class Editor extends Component {
                 this.state.content,
                 this.state.tags,
                 this.state.categories,
-                this.props.loginkey
+                this.props.loginkey,
+                this.state.updating
             );
         else
-            postPage(this.state.title, this.state.content, this.props.loginkey);
+            postPage(
+                this.state.title,
+                this.state.content,
+                this.props.loginkey,
+                this.state.updating
+            );
     }
 
     render() {
@@ -76,6 +105,7 @@ export default class Editor extends Component {
                         onChange={this.handleChange}
                         className="rounded"
                         placeholder="Unique Title Name"
+                        value={this.state.title}
                     />
                 </label>
                 <label>
@@ -91,6 +121,7 @@ export default class Editor extends Component {
                             <i>For italics</i>
                             <h1-4>For headers</h1>
                         "
+                        value={this.state.content}
                     />
                 </label>
                 <div className="options">

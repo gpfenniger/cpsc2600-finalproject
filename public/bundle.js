@@ -18969,7 +18969,8 @@ function (_Component) {
         title: "Editor",
         className: "view"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_Editor__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        loginkey: this.props.loginkey
+        loginkey: this.props.loginkey,
+        info: this.props.info
       }));
     }
   }]);
@@ -19185,12 +19186,24 @@ function (_Component) {
     _classCallCheck(this, Editor);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Editor).call(this, props));
-    _this.state = {
+    console.log(_this.props);
+
+    if (_this.props.info) {
+      _this.state = {
+        title: _this.props.info.name,
+        content: _this.props.info.content,
+        article: true,
+        tags: [],
+        updating: true
+      };
+    } else _this.state = {
       title: '',
       content: '',
       article: true,
-      tags: []
+      tags: [],
+      updating: false
     };
+
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSave = _this.handleSave.bind(_assertThisInitialized(_this));
     _this.toggleType = _this.toggleType.bind(_assertThisInitialized(_this));
@@ -19198,6 +19211,19 @@ function (_Component) {
   }
 
   _createClass(Editor, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(oldProps) {
+      if (this.props.info && this.props.info != oldProps.info) {
+        this.setState({
+          title: this.props.info.name,
+          content: this.props.info.content,
+          article: true,
+          updating: true,
+          tags: []
+        });
+      }
+    }
+  }, {
     key: "handleChange",
     value: function handleChange(event) {
       var newState = {};
@@ -19218,7 +19244,7 @@ function (_Component) {
   }, {
     key: "handleSave",
     value: function handleSave() {
-      if (this.state.article) Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postArticle"])(this.state.title, this.state.content, this.state.tags, this.state.categories, this.props.loginkey);else Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postPage"])(this.state.title, this.state.content, this.props.loginkey);
+      if (this.state.article) Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postArticle"])(this.state.title, this.state.content, this.state.tags, this.state.categories, this.props.loginkey, this.state.updating);else Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postPage"])(this.state.title, this.state.content, this.props.loginkey, this.state.updating);
     }
   }, {
     key: "render",
@@ -19244,12 +19270,14 @@ function (_Component) {
         mod: "title",
         onChange: this.handleChange,
         className: "rounded",
-        placeholder: "Unique Title Name"
+        placeholder: "Unique Title Name",
+        value: this.state.title
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Content", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         mod: "content",
         onChange: this.handleChange,
         className: "rounded",
-        placeholder: "\r <p>For regular text</p>\r <b>For bold</b>\r <i>For italics</i>\r <h1-4>For headers</h1>\r "
+        placeholder: "\r <p>For regular text</p>\r <b>For bold</b>\r <i>For italics</i>\r <h1-4>For headers</h1>\r ",
+        value: this.state.content
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "options"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -19735,6 +19763,8 @@ function (_Component) {
   }, {
     key: "adminAction",
     value: function adminAction(action) {
+      var _this4 = this;
+
       switch (action) {
         case 'new':
           this.setState({
@@ -19745,7 +19775,14 @@ function (_Component) {
           break;
 
         case 'edit':
-          alert('editing current article');
+          Object(_services_Services__WEBPACK_IMPORTED_MODULE_7__["getLink"])(this.props.page).then(function (results) {
+            _this4.setState({
+              view: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_EditorView__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                loginkey: _this4.state.key,
+                info: results.data
+              })
+            });
+          });
           break;
       }
     }
@@ -20050,26 +20087,40 @@ var getLink = function getLink(link) {
   });
 };
 
-var postArticle = function postArticle(title, content, tags, categories, key) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/article', {
-    title: title,
+var postArticle = function postArticle(title, content, tags, categories, key, updating, newTitle) {
+  var document = {
+    name: title,
     content: content,
     tags: tags,
     categories: categories,
     key: key
-  })["catch"](function () {
-    return console.log(new Error('Failed to save article'));
-  });
+  };
+
+  if (updating) {
+    if (newTitle) document.newTitle = newTitle;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(document);
+  } else {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/article', document)["catch"](function () {
+      return new Error('Failed to save article');
+    });
+  }
 };
 
-var postPage = function postPage(title, content, key) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/page', {
+var postPage = function postPage(title, content, key, updating, newTitle) {
+  var document = {
     title: title,
     content: content,
     key: key
-  })["catch"](function () {
-    return console.log(new Error('Failed to save page'));
-  });
+  };
+
+  if (updating) {
+    if (newTitle) document.newTitle = newTitle;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/api/page', document);
+  } else {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/page', document)["catch"](function () {
+      return console.log(new Error('Failed to save page'));
+    });
+  }
 };
 
 
