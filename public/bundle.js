@@ -20167,7 +20167,14 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "rounded"
-      }, "Login"));
+      }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "rounded",
+        onClick: this.props.handleLogin,
+        style: {
+          magin: 5
+        }
+      }, "Close"));
     }
   }]);
 
@@ -20594,7 +20601,8 @@ function (_Component) {
         article: this.state.view.type.name == 'ResultView'
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FloatingPanel__WEBPACK_IMPORTED_MODULE_5__["default"], {
         width: this.props.width,
-        show: this.props.loginShow
+        show: this.props.loginShow,
+        handleLogin: this.props.handleLogin
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_LoginForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
         handleLogin: this.props.handleLogin,
         changeKey: this.changeKey
@@ -20683,6 +20691,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_header_NavLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/header/NavLink */ "./src/components/header/NavLink.js");
+/* harmony import */ var _services_Services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/Services */ "./src/services/Services.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20704,6 +20713,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Header =
 /*#__PURE__*/
 function (_Component) {
@@ -20717,19 +20727,31 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Header).call(this, props));
     _this.state = {
       title: 'Final Project',
-      links: [{
-        value: 'blog',
-        href: '/api/article'
-      }, {
-        value: 'about me',
-        href: '/api/page/about_me'
-      }]
+      links: []
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Header, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      Object(_services_Services__WEBPACK_IMPORTED_MODULE_2__["getPages"])().then(function (pages) {
+        pages.push({
+          value: 'Blog',
+          href: '/api/article'
+        });
+
+        _this2.setState({
+          links: pages
+        });
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
     key: "handleClick",
     value: function handleClick(event) {
       event.preventDefault();
@@ -20738,7 +20760,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         style: {
@@ -20751,7 +20773,7 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_NavLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: link.href,
           link: link,
-          changePage: _this2.props.changePage
+          changePage: _this3.props.changePage
         });
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: this.props.handleLogin,
@@ -20852,7 +20874,7 @@ function (_Component) {
 /*!***************************************!*\
   !*** ./src/services/ContentWorker.js ***!
   \***************************************/
-/*! exports provided: getLink, postArticle, postPage */
+/*! exports provided: getLink, postArticle, postPage, getPages */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20860,6 +20882,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLink", function() { return getLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postArticle", function() { return postArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postPage", function() { return postPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPages", function() { return getPages; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -20870,6 +20893,21 @@ var getLink = function getLink(link) {
       resolve(result);
     })["catch"](function () {
       return reject(new Error("Failed to get '".concat(link, "'")));
+    });
+  });
+};
+
+var getPages = function getPages() {
+  return new Promise(function (resolve, reject) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/page').then(function (result) {
+      resolve(result.data.map(function (page) {
+        return {
+          value: page.name,
+          href: "/api/page/".concat(page.slug)
+        };
+      }));
+    })["catch"](function (err) {
+      return reject(err);
     });
   });
 };
@@ -20919,7 +20957,7 @@ var postPage = function postPage(title, content, key, updating, slug) {
 /*!**********************************!*\
   !*** ./src/services/Services.js ***!
   \**********************************/
-/*! exports provided: checkkey, login, logout, getLink, postArticle, postPage */
+/*! exports provided: checkkey, login, logout, getLink, postArticle, postPage, getPages */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20937,6 +20975,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "postArticle", function() { return _ContentWorker__WEBPACK_IMPORTED_MODULE_1__["postArticle"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "postPage", function() { return _ContentWorker__WEBPACK_IMPORTED_MODULE_1__["postPage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getPages", function() { return _ContentWorker__WEBPACK_IMPORTED_MODULE_1__["getPages"]; });
 
 
 

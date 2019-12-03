@@ -54,23 +54,25 @@ exports.getArticles = (res, next) => {
 
 let updateCategories = (id, categories) => {
     return new Promise((resolve, reject) => {
-        categories.forEach(c => {
-            Category.find({ name: c }).then(category => {
-                let doc;
-                if (category.length == 0) {
-                    doc = Category({
-                        name: c,
-                        articles: [id]
-                    });
-                } else {
-                    doc = category[0];
-                    doc.articles.push(id);
-                }
-                doc.save()
-                    .then(() => resolve())
-                    .catch(err => reject(err));
+        if (categories != undefined) {
+            categories.forEach(c => {
+                Category.find({ name: c }).then(category => {
+                    let doc;
+                    if (category.length == 0) {
+                        doc = Category({
+                            name: c,
+                            articles: [id]
+                        });
+                    } else {
+                        doc = category[0];
+                        doc.articles.push(id);
+                    }
+                    doc.save()
+                        .then(() => resolve())
+                        .catch(err => reject(err));
+                });
             });
-        });
+        } else resolve();
     });
 };
 

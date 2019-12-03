@@ -5,7 +5,7 @@ import AdminToolbar from '../components/body/AdminToolbar';
 import LinkBar from './LinkBar';
 import FloatingPanel from '../components/FloatingPanel';
 import LoginForm from '../components/forms/LoginForm';
-import { getLink, logout } from '../services/Services';
+import { getLink } from '../services/Services';
 import EditorView from '../components/body/EditorView';
 
 export default class Content extends Component {
@@ -109,6 +109,7 @@ export default class Content extends Component {
                 <FloatingPanel
                     width={this.props.width}
                     show={this.props.loginShow}
+                    handleLogin={this.props.handleLogin}
                 >
                     <LoginForm
                         handleLogin={this.props.handleLogin}

@@ -7,6 +7,7 @@ const showdown = require('showdown');
 const Page = require('../../database/models/page');
 const { save, remove } = require('../controllers/common');
 const { updatePage, getPage } = require('../controllers/page');
+const { get } = require('../controllers/common');
 let converter = new showdown.Converter();
 
 module.exports = require('express')

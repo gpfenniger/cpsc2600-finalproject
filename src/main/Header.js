@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import NavLink from '../components/header/NavLink';
+import { getPages } from '../services/Services';
 
 export default class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: 'Final Project',
-            links: [
-                {
-                    value: 'blog',
-                    href: '/api/article'
-                },
-                {
-                    value: 'about me',
-                    href: '/api/page/about_me'
-                }
-            ]
+            links: []
         };
         this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount() {
+        getPages()
+            .then(pages => {
+                pages.push({
+                    value: 'Blog',
+                    href: '/api/article'
+                });
+                this.setState({ links: pages });
+            })
+            .catch(err => console.log(err));
     }
 
     handleClick(event) {

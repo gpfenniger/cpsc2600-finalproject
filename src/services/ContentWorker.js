@@ -11,6 +11,22 @@ let getLink = link => {
     });
 };
 
+let getPages = () => {
+    return new Promise((resolve, reject) => {
+        axios
+            .get('/api/page')
+            .then(result => {
+                resolve(
+                    result.data.map(page => ({
+                        value: page.name,
+                        href: `/api/page/${page.slug}`
+                    }))
+                );
+            })
+            .catch(err => reject(err));
+    });
+};
+
 let postArticle = (title, content, tags, categories, key, updating, slug) => {
     let document = {
         name: title,
@@ -46,4 +62,4 @@ let postPage = (title, content, key, updating, slug) => {
     }
 };
 
-export { getLink, postArticle, postPage };
+export { getLink, postArticle, postPage, getPages };

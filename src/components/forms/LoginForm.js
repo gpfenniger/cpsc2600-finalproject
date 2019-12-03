@@ -32,6 +32,14 @@ export default class LoginForm extends Component {
                 <button type="submit" className="rounded">
                     Login
                 </button>
+                <button
+                    type="button"
+                    className="rounded"
+                    onClick={this.props.handleLogin}
+                    style={{ magin: 5 }}
+                >
+                    Close
+                </button>
             </form>
         );
     }
