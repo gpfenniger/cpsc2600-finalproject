@@ -1,8 +1,7 @@
 /*
     USER Router should support full set of RESTful operations
     HTTP Requests:
-        GET, POST, DELETE
-        OPTIONS
+        GET, POST
     LOGIN SYSTEM
         When a user enters their login system it checks against
         the database and if succesful adds a unique key string
@@ -74,9 +73,4 @@ exports.userRouter = require('express')
                 res.send(true);
             else res.send(false);
         } else res.send(false);
-    })
-    .delete('/user', (req, res) => {
-        console.log('logged out');
-        loginkeys.filter(loginkey => loginkey.key != req.body.loginkey);
-        clearExpired();
     });

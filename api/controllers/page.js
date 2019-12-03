@@ -3,8 +3,10 @@
  * @module api/controllers/page
  */
 
+const showdown = require('showdown');
 const { update, findOne } = require('./common');
 const Page = require('../../database/models/page');
+let converter = new showdown.Converter();
 
 /**
  * Updates a Page document
@@ -19,10 +21,7 @@ exports.updatePage = (req, res, next) => {
         modifier.slug = req.body.name.toLowerCase().replace(' ', '_');
     }
     if (req.body.content)
-        modifier.content = req.body.content
-            .replace(new RegExp('&lt;', 'g'), '<')
-            .replace(new RegExp('&gt;', 'g'), '>')
-            .replace(new RegExp('&#x2F;', 'g'), '/');
+        modifier.content = converter.makeHtml(req.body.content);
 
     if (req.body.slug)
         update(Page, { slug: req.body.slug }, modifier, res, next);

@@ -4,35 +4,32 @@
  * @module api/routes/article
  */
 
-const { get, save, remove } = require('../controllers/common');
-const { getArticle, updateArticle } = require('../controllers/article');
-const Article = require('../../database/models/article');
+const { remove } = require('../controllers/common');
+const {
+    getArticle,
+    getArticles,
+    updateArticle,
+    saveArticle,
+    removeArticle
+} = require('../controllers/article');
 
 module.exports = require('express')
     .Router()
     .get(['/article', '/article/:slug'], (req, res, next) => {
-        req.params.slug
-            ? getArticle(req, res, next)
-            : get(Article, {}, res, next);
+        req.params.slug ? getArticle(req, res, next) : getArticles(res, next);
     })
     .post('/article', (req, res, next) => {
-        save(
-            Article({
-                name: req.body.name,
-                content: req.body.content
-                    .replace(new RegExp('&lt;', 'g'), '<')
-                    .replace(new RegExp('&gt;', 'g'), '>')
-                    .replace(new RegExp('&#x2F;', 'g'), '/'),
-                slug: req.body.name.toLowerCase().replace(' ', '_'),
-                tags: req.body.tags
-            }),
-            res,
-            next
-        );
+        saveArticle(req)
+            .then(() => res.status(201))
+            .catch(err => next(err));
     })
     .put('/article', (req, res, next) => {
-        updateArticle(req, res, next);
+        updateArticle(req)
+            .then(() => res.status(200))
+            .catch(err => next(err));
     })
     .delete('/article', (req, res, next) => {
-        remove(Page, { slug: req.body.slug }, res, next);
+        removeArticle(req.body.slug)
+            .then(() => res.status(200))
+            .catch(err => next(err));
     });

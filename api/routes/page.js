@@ -3,9 +3,11 @@
  * @module api/routes/page
  */
 
+const showdown = require('showdown');
 const Page = require('../../database/models/page');
 const { save, remove } = require('../controllers/common');
 const { updatePage, getPage } = require('../controllers/page');
+let converter = new showdown.Converter();
 
 module.exports = require('express')
     .Router()
@@ -18,10 +20,7 @@ module.exports = require('express')
         save(
             Page({
                 name: req.body.name,
-                content: req.body.content
-                    .replace(new RegExp('&lt;', 'g'), '<')
-                    .replace(new RegExp('&gt;', 'g'), '>')
-                    .replace(new RegExp('&#x2F;', 'g'), '/'),
+                content: converter.makeHtml(req.body.content),
                 slug: req.body.name.toLowerCase().replace(' ', '_')
             }),
             res,

@@ -17,11 +17,9 @@ module.exports = mongoose.model(
             maxlength: 30,
             required: true
         },
-        tags: [
-            {
-                type: String,
-                maxlength: 30
-            }
-        ]
+        date: {
+            type: Date,
+            required: true
+        }
     })
 );

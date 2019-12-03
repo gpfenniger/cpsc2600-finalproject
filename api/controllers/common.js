@@ -77,7 +77,7 @@ exports.getOne = (model, params, res, next) => {
 exports.save = (document, res, next) => {
     document
         .save()
-        .then(() => res.status(201).send(true))
+        .then(() => res.status(201))
         .catch(() => {
             res.status(400);
             next(new Error('Failed to Save'));

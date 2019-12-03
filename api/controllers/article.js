@@ -3,10 +3,10 @@
  * @module api/controllers/article
  */
 
+const showdown = require('showdown');
 const Article = require('../../database/models/article');
 const Category = require('../../database/models/category');
-const { find, findOne, update } = require('./common');
-
+let converter = new showdown.Converter();
 /**
  * Gets an Article and its related Categories
  * @param {Object} req
@@ -14,9 +14,9 @@ const { find, findOne, update } = require('./common');
  * @param {Object} next
  */
 exports.getArticle = (req, res, next) => {
-    findOne(Article, { slug: req.params.slug })
+    Article.findOne({ slug: req.params.slug })
         .then(doc => {
-            find(Category, {})
+            Category.find({})
                 .then(categories => {
                     res.status(200).send({
                         name: doc.name,
@@ -44,27 +44,86 @@ exports.getArticle = (req, res, next) => {
         });
 };
 
+exports.getArticles = (res, next) => {
+    Article.find({}).then(articles => {
+        res.status(200)
+            .send(articles)
+            .catch(err => next(err));
+    });
+};
+
+let updateCategories = (id, categories) => {
+    return new Promise((resolve, reject) => {
+        categories.forEach(c => {
+            Category.find({ name: c }).then(category => {
+                let doc;
+                if (category.length == 0) {
+                    doc = Category({
+                        name: c,
+                        articles: [id]
+                    });
+                } else {
+                    doc = category[0];
+                    doc.articles.push(id);
+                }
+                doc.save()
+                    .then(() => resolve())
+                    .catch(err => reject(err));
+            });
+        });
+    });
+};
+
+exports.updateArticle = req => {
+    return new Promise((resolve, reject) => {
+        Article.updateOne(
+            {
+                slug: req.body.slug
+            },
+            {
+                name: req.body.name,
+                content: converter.makeHtml(req.body.content),
+                slug: req.body.name.toLowerCase().replace(' ', '_'),
+                date: new Date()
+            }
+        )
+            .then(article => {
+                updateCategories(article._id, req.body.categories)
+                    .then(() => resolve())
+                    .catch(err => reject(err));
+            })
+            .catch(err => reject(err));
+    });
+};
+
 /**
- * Update an Article in the database
+ * Create an article in the database and its categories
  * @param {Object} req
- * @param {Object} res
- * @param {Object} next
  */
-exports.updateArticle = (req, res, next) => {
-    let modifier = {};
-    if (req.body.name) {
-        modifier.name = req.body.name;
-        modifier.slug = req.body.name.toLowerCase().replace(' ', '_');
-    }
-    if (req.body.content)
-        modifier.content = req.body.content
-            .replace(new RegExp('&lt;', 'g'), '<')
-            .replace(new RegExp('&gt;', 'g'), '>')
-            .replace(new RegExp('&#x2F;', 'g'), '/');
-    if (req.body.slug) {
-        update(Article, { slug: req.body.slug }, modifier, res, next);
-    } else {
-        res.status(400);
-        next(new Error('Bad Request - No Slug'));
-    }
+exports.saveArticle = req => {
+    return new Promise((resolve, reject) => {
+        Article({
+            name: req.body.name,
+            content: converter.makeHTML(req.body.content),
+            slug: req.body.name.toLowerCase().replace(' ', '_'),
+            date: new Date()
+        })
+            .save()
+            .then(article => {
+                if (req.body.categories) {
+                    updateCategories(article._id, req.body.categories)
+                        .then(() => resolve())
+                        .catch(err => reject(err));
+                }
+            })
+            .catch(err => reject(err));
+    });
+};
+
+exports.removeArticle = slug => {
+    return new Promise((resolve, reject) => {
+        Article.deleteOne({ slug: slug })
+            .then(() => resolve())
+            .catch(err => reject(err));
+    });
 };
