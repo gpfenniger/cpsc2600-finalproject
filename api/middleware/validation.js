@@ -10,10 +10,7 @@ let validArticle = [
         .withMessage('Name is not proper'),
     check('content')
         .isString()
-        .withMessage('Content is not String'),
-    check('tags')
-        .isArray()
-        .withMessage('Tags are not an Array')
+        .withMessage('Content is not String')
 ];
 
 let validCategory = [

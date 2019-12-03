@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { postPage, postArticle } from '../../services/Services';
+import TurndownService from 'turndown';
+let turndownService = new TurndownService();
 
 export default class Editor extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: this.props.info ? this.props.info.name : '',
-            content: this.props.info ? this.props.info.content : '',
+            content: this.props.info
+                ? turndownService.turndown(this.props.info.content)
+                : '',
+            categories: [''],
             article: true,
-            tags: [],
             updating: this.props.info
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleCategories = this.handleCategories.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.toggleType = this.toggleType.bind(this);
     }
@@ -23,7 +28,7 @@ export default class Editor extends Component {
         ) {
             this.setState({
                 title: this.props.info.name,
-                content: this.props.info.content,
+                content: turndownService.turndown(this.props.info.content),
                 article: true,
                 updating: true,
                 tags: []
@@ -37,6 +42,12 @@ export default class Editor extends Component {
             newState = { title: event.target.value };
         else newState = { content: event.target.value };
         this.setState(newState);
+    }
+
+    handleCategories(event) {
+        this.setState({
+            categories: [event.target.value]
+        });
     }
 
     toggleType(event) {
@@ -70,19 +81,13 @@ export default class Editor extends Component {
             tagOptions = (
                 <>
                     <label>
-                        Tags:
-                        <input
-                            type="text"
-                            className="rounded"
-                            placeholder="#mytag"
-                        />
-                    </label>
-                    <label>
                         Categories
                         <input
                             type="text"
                             className="rounded"
                             placeholder="category name"
+                            onChange={this.handleCategories}
+                            value={this.state.categories[0]}
                         />
                     </label>
                 </>

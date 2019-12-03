@@ -45,11 +45,11 @@ exports.getArticle = (req, res, next) => {
 };
 
 exports.getArticles = (res, next) => {
-    Article.find({}).then(articles => {
-        res.status(200)
-            .send(articles)
-            .catch(err => next(err));
-    });
+    Article.find({})
+        .then(articles => {
+            res.status(200).send(articles);
+        })
+        .catch(err => next(err));
 };
 
 let updateCategories = (id, categories) => {
@@ -87,9 +87,15 @@ exports.updateArticle = req => {
                 date: new Date()
             }
         )
-            .then(article => {
-                updateCategories(article._id, req.body.categories)
-                    .then(() => resolve())
+            .then(() => {
+                Article.findOne({
+                    slug: req.body.name.toLowerCase().replace(' ', '_')
+                })
+                    .then(article => {
+                        updateCategories(article._id, req.body.categories)
+                            .then(() => resolve())
+                            .catch(err => reject(err));
+                    })
                     .catch(err => reject(err));
             })
             .catch(err => reject(err));
@@ -109,12 +115,16 @@ exports.saveArticle = req => {
             date: new Date()
         })
             .save()
-            .then(article => {
-                if (req.body.categories) {
-                    updateCategories(article._id, req.body.categories)
-                        .then(() => resolve())
-                        .catch(err => reject(err));
-                }
+            .then(() => {
+                Article.findOne({
+                    slug: req.body.name.toLowerCase().replace(' ', '_')
+                })
+                    .then(article => {
+                        updateCategories(article._id, req.body.categories)
+                            .then(() => resolve())
+                            .catch(err => reject(err));
+                    })
+                    .catch(err => reject(err));
             })
             .catch(err => reject(err));
     });
