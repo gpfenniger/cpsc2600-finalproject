@@ -3,6 +3,7 @@ const fs = require('fs');
 module.exports = require('express')
     .Router()
     .use((error, req, res, next) => {
+        console.log('Caught Error');
         if (error) {
             fs.appendFile(
                 '../../logs/error_log.txt',

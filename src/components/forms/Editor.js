@@ -4,30 +4,23 @@ import { postPage, postArticle } from '../../services/Services';
 export default class Editor extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
-        if (this.props.info) {
-            this.state = {
-                title: this.props.info.name,
-                content: this.props.info.content,
-                article: true,
-                tags: [],
-                updating: true
-            };
-        } else
-            this.state = {
-                title: '',
-                content: '',
-                article: true,
-                tags: [],
-                updating: false
-            };
+        this.state = {
+            title: this.props.info ? this.props.info.name : '',
+            content: this.props.info ? this.props.info.content : '',
+            article: true,
+            tags: [],
+            updating: this.props.info
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.toggleType = this.toggleType.bind(this);
     }
 
     componentDidUpdate(oldProps) {
-        if (this.props.info && this.props.info != oldProps.info) {
+        if (
+            this.props.info &&
+            JSON.stringify(this.props.info) != JSON.stringify(oldProps.info)
+        ) {
             this.setState({
                 title: this.props.info.name,
                 content: this.props.info.content,
@@ -58,14 +51,16 @@ export default class Editor extends Component {
                 this.state.tags,
                 this.state.categories,
                 this.props.loginkey,
-                this.state.updating
+                this.state.updating,
+                this.props.page.match(new RegExp('[a-z_]*$'))
             );
         else
             postPage(
                 this.state.title,
                 this.state.content,
                 this.props.loginkey,
-                this.state.updating
+                this.state.updating,
+                this.props.page.match(new RegExp('[a-z_]*$'))
             );
     }
 

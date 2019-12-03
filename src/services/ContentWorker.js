@@ -11,15 +11,7 @@ let getLink = link => {
     });
 };
 
-let postArticle = (
-    title,
-    content,
-    tags,
-    categories,
-    key,
-    updating,
-    newTitle
-) => {
+let postArticle = (title, content, tags, categories, key, updating, slug) => {
     let document = {
         name: title,
         content: content,
@@ -28,8 +20,8 @@ let postArticle = (
         key: key
     };
     if (updating) {
-        if (newTitle) document.newTitle = newTitle;
-        axios.put(document);
+        if (slug) document.slug = slug;
+        axios.put('/api/article', document);
     } else {
         axios
             .post('/api/article', document)
@@ -37,14 +29,15 @@ let postArticle = (
     }
 };
 
-let postPage = (title, content, key, updating, newTitle) => {
+let postPage = (title, content, key, updating, slug) => {
     let document = {
-        title: title,
+        name: title,
         content: content,
         key: key
     };
     if (updating) {
-        if (newTitle) document.newTitle = newTitle;
+        console.log(`UPDATING: ${slug}`);
+        if (slug) document.slug = slug;
         axios.put('/api/page', document);
     } else {
         axios

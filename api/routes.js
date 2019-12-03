@@ -15,12 +15,11 @@ const categoryRouter = require('./routes/category');
 const validation = require('./middleware/validation');
 const sanitization = require('./middleware/sanitization');
 const privleges = require('./middleware/privleges');
-const errorMiddleware = require('./middleware/errors');
 
 module.exports = require('express')
     .Router()
     .use('/api', [privleges, validation, sanitization])
-    .use('/', [errorMiddleware, userRouter])
+    .use('/', userRouter)
     .use('/api', [articleRouter, pageRouter, categoryRouter])
     .options('*', (req, res) => {
         res.status(200).send(`

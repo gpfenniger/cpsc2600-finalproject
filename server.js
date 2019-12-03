@@ -3,22 +3,14 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const apiRoutes = require('./api/routes');
+const errorMiddleware = require('./api/middleware/errors');
 const connection = require('./database/db');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(errorMiddleware);
 app.use(bodyParser.json());
-
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Oh no! Something broke!');
-});
-
 app.use('/', apiRoutes);
-
-app.get('/', (req, res) => {
-    res.status(200).sendFile('/index.html');
-});
 
 app.set('port', process.env.PORT || 8080);
 connection.once('open', () => {

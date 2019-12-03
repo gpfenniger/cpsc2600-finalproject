@@ -18970,7 +18970,8 @@ function (_Component) {
         className: "view"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_Editor__WEBPACK_IMPORTED_MODULE_1__["default"], {
         loginkey: this.props.loginkey,
-        info: this.props.info
+        info: this.props.info,
+        page: this.props.page
       }));
     }
   }]);
@@ -19186,24 +19187,13 @@ function (_Component) {
     _classCallCheck(this, Editor);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Editor).call(this, props));
-    console.log(_this.props);
-
-    if (_this.props.info) {
-      _this.state = {
-        title: _this.props.info.name,
-        content: _this.props.info.content,
-        article: true,
-        tags: [],
-        updating: true
-      };
-    } else _this.state = {
-      title: '',
-      content: '',
+    _this.state = {
+      title: _this.props.info ? _this.props.info.name : '',
+      content: _this.props.info ? _this.props.info.content : '',
       article: true,
       tags: [],
-      updating: false
+      updating: _this.props.info
     };
-
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSave = _this.handleSave.bind(_assertThisInitialized(_this));
     _this.toggleType = _this.toggleType.bind(_assertThisInitialized(_this));
@@ -19213,7 +19203,7 @@ function (_Component) {
   _createClass(Editor, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(oldProps) {
-      if (this.props.info && this.props.info != oldProps.info) {
+      if (this.props.info && JSON.stringify(this.props.info) != JSON.stringify(oldProps.info)) {
         this.setState({
           title: this.props.info.name,
           content: this.props.info.content,
@@ -19244,7 +19234,7 @@ function (_Component) {
   }, {
     key: "handleSave",
     value: function handleSave() {
-      if (this.state.article) Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postArticle"])(this.state.title, this.state.content, this.state.tags, this.state.categories, this.props.loginkey, this.state.updating);else Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postPage"])(this.state.title, this.state.content, this.props.loginkey, this.state.updating);
+      if (this.state.article) Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postArticle"])(this.state.title, this.state.content, this.state.tags, this.state.categories, this.props.loginkey, this.state.updating, this.props.page.match(new RegExp('[a-z_]*$')));else Object(_services_Services__WEBPACK_IMPORTED_MODULE_1__["postPage"])(this.state.title, this.state.content, this.props.loginkey, this.state.updating, this.props.page.match(new RegExp('[a-z_]*$')));
     }
   }, {
     key: "render",
@@ -19769,7 +19759,8 @@ function (_Component) {
         case 'new':
           this.setState({
             view: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_EditorView__WEBPACK_IMPORTED_MODULE_8__["default"], {
-              loginkey: this.state.key
+              loginkey: this.state.key,
+              page: this.props.page
             })
           });
           break;
@@ -19779,7 +19770,8 @@ function (_Component) {
             _this4.setState({
               view: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_body_EditorView__WEBPACK_IMPORTED_MODULE_8__["default"], {
                 loginkey: _this4.state.key,
-                info: results.data
+                info: results.data,
+                page: _this4.props.page
               })
             });
           });
@@ -20087,7 +20079,7 @@ var getLink = function getLink(link) {
   });
 };
 
-var postArticle = function postArticle(title, content, tags, categories, key, updating, newTitle) {
+var postArticle = function postArticle(title, content, tags, categories, key, updating, slug) {
   var document = {
     name: title,
     content: content,
@@ -20097,8 +20089,8 @@ var postArticle = function postArticle(title, content, tags, categories, key, up
   };
 
   if (updating) {
-    if (newTitle) document.newTitle = newTitle;
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(document);
+    if (slug) document.slug = slug;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/api/article', document);
   } else {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/article', document)["catch"](function () {
       return new Error('Failed to save article');
@@ -20106,15 +20098,16 @@ var postArticle = function postArticle(title, content, tags, categories, key, up
   }
 };
 
-var postPage = function postPage(title, content, key, updating, newTitle) {
+var postPage = function postPage(title, content, key, updating, slug) {
   var document = {
-    title: title,
+    name: title,
     content: content,
     key: key
   };
 
   if (updating) {
-    if (newTitle) document.newTitle = newTitle;
+    console.log("UPDATING: ".concat(slug));
+    if (slug) document.slug = slug;
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/api/page', document);
   } else {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/page', document)["catch"](function () {

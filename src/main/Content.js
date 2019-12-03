@@ -57,7 +57,12 @@ export default class Content extends Component {
         switch (action) {
             case 'new':
                 this.setState({
-                    view: <EditorView loginkey={this.state.key} />
+                    view: (
+                        <EditorView
+                            loginkey={this.state.key}
+                            page={this.props.page}
+                        />
+                    )
                 });
                 break;
             case 'edit':
@@ -67,6 +72,7 @@ export default class Content extends Component {
                             <EditorView
                                 loginkey={this.state.key}
                                 info={results.data}
+                                page={this.props.page}
                             />
                         )
                     });

@@ -5,7 +5,7 @@
 
 const Article = require('../../database/models/article');
 const Category = require('../../database/models/category');
-const { find, findOne } = require('./common');
+const { find, findOne, update } = require('./common');
 
 /**
  * Gets an Article and its related Categories
@@ -51,5 +51,20 @@ exports.getArticle = (req, res, next) => {
  * @param {Object} next
  */
 exports.updateArticle = (req, res, next) => {
-    next(new Error('TODO'));
+    let modifier = {};
+    if (req.body.name) {
+        modifier.name = req.body.name;
+        modifier.slug = req.body.name.toLowerCase().replace(' ', '_');
+    }
+    if (req.body.content)
+        modifier.content = req.body.content
+            .replace(new RegExp('&lt;', 'g'), '<')
+            .replace(new RegExp('&gt;', 'g'), '>')
+            .replace(new RegExp('&#x2F;', 'g'), '/');
+    if (req.body.slug) {
+        update(Article, { slug: req.body.slug }, modifier, res, next);
+    } else {
+        res.status(400);
+        next(new Error('Bad Request - No Slug'));
+    }
 };
